@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.label {
+    color: #18191B;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 4px;
+}
+
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #18191B;
+    font-weight: 600;
+  }
+  
+  .withIcon {
+    padding-left: 35px !important;
+  }
+
+  
+
+.inputField:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+    box-shadow: 0px 0px 0px 2px #E5EDFF;
+    -webkit-box-shadow: 0px 0px 0px 2px #E5EDFF;
+    -moz-box-shadow: 0px 0px 0px 2px #E5EDFF;
+}
+
+.inputField::placeholder {
+  color: #D6D8DB;
+  font-family: 'Inter Display', sans-serif;
+  font-weight: 500;
+}
+
+.masterCard,
+.visaIcon,
+.emptyCard,
+.infoCircle {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.masterCard {
+    background-image: url("../../../../public/image/clickToPay/masterCardInputIcon.svg");
+}
+.visaIcon {
+    background-image: url("../../../../public/image/componentImages/visa.svg");
+}
+
+.emptyCard {
+    background-image: url("../../../../public/image/componentImages/emptyCard.svg");
+}
+
+.infoCircle {
+    background-image: url("../../../../public/image/componentImages/infocircle.svg");
+}
+
+.inputField::-webkit-search-clear-button,
+.inputField::-webkit-search-cancel-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.searchIcon{
+  position: absolute;
+  left: 10px;
+  
+}
+
+.clearIcon{
+  position: absolute;
+  right:10px;
+}
+.withClearIcon{
+  padding-right: 35px;
+}
+
+.iconText{
+  color: #005FE6;
+  position: absolute;
+  right: 16px;
+  font-size: 12px;
+}

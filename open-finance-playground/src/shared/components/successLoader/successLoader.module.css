@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 23% 0 35px 0;
+}
+
+.successContainer {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #008035;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popIn 0.5s ease-in-out forwards 0.01s;
+}
+.tick {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    border-bottom: 4px solid white;
+    border-left: 4px solid white;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation: drawTick 0.5s ease-in-out forwards 1.5s;
+}
+.ripple, .ripple2 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 20px solid #00B40766;
+    animation: rippleEffect 1.5s ease-out infinite;
+}
+
+.ripplePending {
+    border: 20px solid #ee9105;
+    
+    
+}
+.ripple2 {
+    width: 50px;
+    height: 50px;
+    animation-delay: 0.5s;
+}
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes drawTick {
+    0% { opacity: 0; width: 0; height: 0; }
+    50% { opacity: 1; width: 20px; height: 10px; }
+    100% { opacity: 1; }
+}
+@keyframes rippleEffect {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.2); opacity: 0.3; }
+}

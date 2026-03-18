@@ -1,0 +1,470 @@
+.mobileContainer {
+  width: 390px;              
+  height: 85%;           
+  border: 8px solid white;
+  border-radius: 40px;
+  background: #f6f7f7;
+  margin: 0 auto;           
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;          
+  align-self: center;
+  margin: 10px;
+  max-height: 844px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 1440px) {
+  .mobileContainer {
+    height: 76.5% ;
+  }
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  font-family: "DM Sans", sans-serif;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.redirectionContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.headerSection{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  align-self: flex-start;
+    
+}
+
+.pageNumber{
+    font-weight: 500;
+    font-size: 10px;
+    color: #555555;
+    background-color: #F8F9FA;
+    width: fit-content;
+    padding: 2px 4px;
+    border-radius: 3px;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+    
+}
+
+
+.title{
+  line-height: 16px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.subTitle{
+  font-size: 12px;
+  color: #61646B;
+}
+
+.inputContainer{
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dotPlaceholder::placeholder{
+    color: #D6D8DB;
+    font-size: 14px;
+}
+
+
+.imageContainer{
+    display: flex;
+    align-items: center;
+    margin: 40px 0 40px 0;
+    justify-content: center;
+}
+
+.nsImageContainer{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #1B85FF;
+    margin-right: 84px;
+}
+
+.caretRightContainer {
+    display: flex;
+    position: relative;
+    bottom: 16px;
+    right: 72px;
+}
+
+.caretRight {
+    background-image: url("../../../../../../public/image/componentImages/CaretRight.svg");
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+    animation: sequenceAnimation 3s infinite; /* Infinite loop */
+}
+
+.caretRight:nth-child(1) {
+    left: 0px;
+    animation-delay: 0s;
+}
+
+.caretRight:nth-child(2) {
+    left: 15px; 
+    animation-delay: 0.3s; 
+
+}
+
+.caretRight:nth-child(3) {
+    left: 30px; 
+    animation-delay: 0.6s; 
+
+}
+
+.itauBankContainer{
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #FF8301;
+}
+
+.headerText{
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Geist', 'DM Sans', sans-serif;
+    color: #18191B;
+    line-height: 16px;
+}
+
+@keyframes sequenceAnimation {
+    0%, 25% { opacity: 1; }  
+    30%, 50% { opacity: 1; } 
+    55%, 75% { opacity: 1; } 
+    80%, 100% { opacity: 0; } 
+}
+
+
+.redirectionHeaderContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.redirectionHeader{
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+}
+
+.redirectionSubHeader{
+  font-size: 12px;
+  line-height: 16px;
+  color : #555555;
+  letter-spacing:  0.01em;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  
+}
+
+.stepsContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.stepItem{
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stepNumber{
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: #E5F0FF;
+  color : #005FE6;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 500;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.stepText{
+  font-size: 12px;
+  line-height: 16px;
+  color : #555555;
+  letter-spacing:  0.01em;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 200;
+}
+
+.termsAConditionsContainer{
+  font-size: 12px;
+  line-height: 16px;
+  color : #555555;
+  letter-spacing:  0.01em;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 200;
+  width: 62%;
+  text-align: center;
+  align-self: center;
+  margin: 16px 0 0;
+}
+
+.tnc{
+  color : #8B4513; 
+}
+
+.footerContainer{
+  padding:  30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footerContainerPix{
+  padding:  30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.juspayLoaderContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  gap: 32px;
+  margin-top: 70%;
+}
+
+.spin {
+    animation: spin 2s linear infinite;
+}
+
+.timerHeader{
+  color: #1D1D1F;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  width: 60%;
+  
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.itauBankContainer2{
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #820AD1;
+    margin-right: 84px;
+      
+}
+
+
+.nsImageContainer2{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #1B85FF;
+    
+}
+
+.headerText2{
+  text-align: center;
+  margin-top: 44px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.redirectionSuccessContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+  gap: 32px;
+}
+
+.successImage{
+  position: relative;
+}
+
+.shield{
+  position: absolute;
+  right: 3px;
+  bottom: 4px;
+}
+
+.successTextContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 85%;
+  text-align: center;
+}
+
+.successText{
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  color:  #111111;
+}
+
+.successSubText{
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  color: #555555;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  pointer-events: none; /* optional: allows underlying clicks if needed */
+  transition: opacity 0.3s ease;
+}
+
+.faceIdContainer {
+  position: relative;
+  z-index: 200;
+  background: #FAFAFAED;
+  height: 455px;
+  padding:  16px 16px 40px 16px;
+  border-radius:  13px ;
+  backdrop-filter: blur(80px);
+  box-sizing: border-box;
+}
+
+.faceIdSuccessWrapper {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+
+.imageContainerPix{
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+    justify-content: left;
+}
+
+.redirectionHeaderContainer2{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.redirectionHeader2{
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  line-height: 10px;
+}
+
+.headerTextPix{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Geist', 'DM Sans', sans-serif;
+    color: #18191B;
+    line-height: 20px;
+    margin-top: 34px;
+}
+
+
+.importantNoteContainer{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.infoContainer{
+  padding: 12px;
+  background-color: #F8F9FA;
+  display: flex;
+  gap:  12px;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  line-height: 16px;
+  border-radius: 8px;
+  margin-top: 24px;
+  color: #555555;
+  align-items: flex-start;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  
+}
+
+.infoTextHeading{
+  color : #555555;
+  font-size: 12px;
+  letter-spacing: 0.01;
+  line-height: 16px;
+}
+
+.infoText{
+  color: #555555;
+  font-weight: bold;
+  padding-right: 3px;
+  
+}
+
+.bankPage{
+  background-color: #820AD1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;  
+  border-radius: 24px;
+}

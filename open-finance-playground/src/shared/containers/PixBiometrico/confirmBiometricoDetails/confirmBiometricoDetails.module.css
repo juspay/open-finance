@@ -1,0 +1,172 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+
+.headerText{
+    color: #18191B;
+    font-size: 24px;
+    font-weight: 600;
+    padding:20px 0 40px;
+}
+
+.tableRow{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.tableKey{
+    color: #777777;
+    font-size: 15px;
+    
+}
+.tableValueContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* text-align: right; */
+    
+}
+
+/* .tableValueContainer::before {
+  content: "";
+  position: absolute;
+  left: 0; 
+  top: 50%;
+  transform: translate(-12px, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: -12px 0 0 0 black; 
+} */
+
+
+.tableValue{
+    color: #18191B;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.tableSubValue{
+    color: #555555;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.inputFieldTitle {
+    color: #18191B;
+    font-size: 12px;
+}
+.inputField {
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+    font-size: 15px;
+    color: #555555;
+    max-height: 48px;
+}
+
+.inputField::placeholder {
+  color: #D6D8DB;
+  font-family: 'Inter Display', sans-serif;
+  font-weight: 500;
+}
+
+.inputField:focus {
+  outline: none; 
+  border-color: #80bfff;
+  box-shadow: 0 0 0 3px rgba(128, 191, 255, 0.4);
+}
+
+.footerButtons {
+    padding: 0px 20px;
+}
+
+.popupOverlay {
+  position: absolute; /* not fixed, so it stays within parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: inherit; /* so it blends nicely if parent is rounded */
+}
+
+.popupBox {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: popupFadeIn 0.25s ease-out;
+  bottom: 0;
+  position: absolute;
+}
+
+.popupTitle {
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  color: #18191B;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.popupSubTitle{
+  padding: 35px 0;
+  color: #555555;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Geist', sans-serif;
+  
+}
+
+.popupButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.popupBtn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.popupYes {
+  background-color: #CB4400;
+  color: white;
+}
+
+.popupNo {
+  background-color: #F8F9FA;
+  color: #737373;
+}
+
+@keyframes popupFadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

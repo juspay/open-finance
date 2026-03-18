@@ -1,0 +1,80 @@
+.sidebar {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'DM Sans';
+  padding: 0 12px 12px;
+  overflow-x: hidden;
+  
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin : 0;
+  margin-bottom: 10px;
+  /* font-family: 'DM Sans'; */
+}
+
+.dropdown {
+  width: 100%;
+  padding: 8px 12px; /* uniform padding */
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #F3F4FA;
+  border: none;
+  outline: none;
+  color: #000;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("../../../../../../public/image/ofPlayground/dropdow-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.dropdown:focus {
+  outline: none;
+  box-shadow: none;
+}
+.dropdown:hover {
+  background-color: #e9eaf5;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contentHeader{
+  color: #A6A6BD;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+
+}
+
+.contentWrapper{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'DM Sans', sans-serif;
+  
+}
+
+.apiType{
+  color: #A6A6BD;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  
+}
+
+.apiCalls{
+  font-weight: bold;
+}

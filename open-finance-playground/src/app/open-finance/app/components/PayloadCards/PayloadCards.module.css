@@ -1,0 +1,152 @@
+
+/* Card styles */
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  transition: box-shadow 0.2s ease;
+  padding: 12px;
+}
+
+.card:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.highlight {
+  border: 1px solid #90B4F6;
+  background: #F7FAFF;
+}
+
+/* Time label */
+.time {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  font-family: var(--font-dm-sans), sans-serif;
+  line-height: 22px;
+}
+
+.apiEndpoint {
+  font-size: 14px;
+  color: #374151;
+  margin: 0;
+  font-weight: 400;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 16px;
+  font-family: var(--font-dm-mono), monospace;
+  word-wrap: break-word;
+}
+
+/* Collapsible section */
+.section {
+  padding: 8px 12px 12px;
+    margin-top: 16px;
+    background-color: #FFFFFF;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+}
+
+.sectionHeader {
+  font-size: 14px;
+  font-weight: 400;
+  color: #111111;
+  margin: 0;
+  line-height: 130%;
+  font-family: var(--font-dm-sans), sans-serif;
+  
+}
+
+.toggleIcon {
+  font-weight: bold;
+  color: #888;
+  user-select: none;
+}
+
+/* Code block */
+.code {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  color: #111111;
+  border-radius: 6px;
+  margin: 0;
+  line-height: 130%;
+  white-space: pre-wrap;  
+  word-break: break-word;
+  overflow: hidden;
+}
+
+
+.cardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggleIcon {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  user-select: none;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.urlMethod {
+  background-color: #EAF7EA;
+  color: #4AAF57;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.disabledCard {
+  /* opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(0.5); */
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: rgba(0, 0, 0, 0.2);               
+  cursor: not-allowed;
+  pointer-events: none;
+  transition: all 0.3s ease;  
+}

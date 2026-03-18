@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+
+.desc{
+    margin-top: 24px;
+    color: #18191B;
+    font-size: 18px;
+    font-family: 'Inter Display SemiBold';
+}
+
+.textContainer{
+    text-align: center;
+    gap: 3px;
+}
+
+.subdesc{
+    color: #777777;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 0 32px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 2s linear infinite;
+}

@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding-bottom: 32px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #18191B;
+}
+
+.switch {
+  width: 44px;
+  height: 24px;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.switch.on {
+  background-color: #4ade80;
+}
+
+.thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.switch.on .thumb {
+  transform: translateX(20px);
+}

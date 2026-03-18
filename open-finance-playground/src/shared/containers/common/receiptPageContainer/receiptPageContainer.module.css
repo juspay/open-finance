@@ -1,0 +1,172 @@
+.container{
+    display: flex;
+    height: 100%;
+    background-color: #F8F9FA;
+    flex-direction: column;
+}
+
+.receiptHeader{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+
+}
+
+.headerTitle{
+    color: 18191B;
+    font-weight: 600;
+    font-size: 24px;
+    font-family: 'Inter Display Bold', sans-serif;
+    padding-bottom: 10px;
+}
+.timeText{
+    color: #777777;
+}
+
+.total{
+    color: #18191B;
+    font-size: 14px;
+    font-family: 'Onest';
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.paymentMethod{
+    color: #777777;
+    font-size: 12px;
+}
+
+.shareButton{
+    background-color: #F8F9FA;
+    border-radius: 100px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: 'Inter Display Bold', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.shareButton:active {
+    transform: scale(0.95); 
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+.shareImage{
+    padding-left: 8px;
+}
+
+.summaryContainer{
+    display: flex;
+    background-color: #ffffff;
+    gap: 20px;
+    padding: 24px;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.billItems{
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    margin: 0 0 12px 0;
+    background-color: #ffffff;
+    align-items: flex-start;
+
+
+}
+
+.textContainer{
+    padding-bottom: 24px;
+
+}
+
+.heading{
+    color: #777777;
+    font-size: 12px;
+    font-family: 'Onest';
+}
+
+.subheading{
+    color: #18191B;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Onest';
+}
+
+.description{
+    color: #555555;
+    font-size: 12px;
+    padding-bottom: 16px;
+}
+
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: space-between;
+}
+.billStructure{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tableRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rowTitle{
+    color: #777777;
+    font-size: 12px;
+    font-family: 'Onest';
+    
+}
+
+.rowContent{
+    color: #231D1A;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Onest';
+}
+
+
+
+.iconContainers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* spacing between the circles */
+}
+
+.usableIcons {
+  width: 40px;
+  height: 40px;
+  background-color: #f9fafb; /* soft gray circle background */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.usableIcons:hover {
+  transform: scale(1.05);
+  background-color: #f3f4f6;
+}
+
+.container {
+  background: #ffffff;
+}
+
+.billContainer,
+.summaryContainer {
+  overflow: visible;
+}
+.noPrint {
+  display: none !important;
+}

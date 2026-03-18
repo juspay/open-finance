@@ -1,0 +1,205 @@
+.sideBarHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 32px;
+  padding: 0 12px;
+}
+
+.sideBarTitle{
+  color: 111111;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
+.section {
+  margin-top: 16px;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.layoutItemContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.layoutItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  border-radius: 17px;
+  cursor: pointer;
+  background-color: #F3F4FA;
+  border: 2px solid transparent;
+  transition: all 0.25s ease-in-out;
+  max-height: 72px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .layoutItem {
+    max-width: 143px;
+  }
+}
+
+.layoutItem:hover {
+  background-color: #e5e7eb;
+}
+
+.selected {
+  background-color: #f7faff;
+  border-color: #90B4F6; 
+}
+
+.selected img {
+  filter: invert(26%) sepia(94%) saturate(3762%) hue-rotate(210deg) brightness(93%) contrast(101%);
+}
+
+.subheading{
+  color: #111111;
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin: 0;
+  
+}
+
+.optionText{
+  color: #A6A6BD;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.input,
+.select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+}
+
+.sectionContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding : 0 12px;
+}
+
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabledContainer .optionText {
+  opacity: 0.5;
+}
+
+@media (max-width: 1440px) {
+  .section * {
+    font-size: 14px !important;
+  }
+}
+
+.languageSelect {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: #111111;
+}
+
+.languageSelect:focus,
+.languageSelect:active,
+.languageSelect:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.sideBarTitleContainer{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.languageWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.option {
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #f5f5f5;
+}
+
+.arrowIcon {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  padding-left: 10px;
+}
+
+.dropdownName{
+  padding-right: 15px;
+}

@@ -1,0 +1,124 @@
+{
+  "merchantName": "Apresente todos os dados-chave de pagamento juntos para o usuário.",
+  "openFinanceLabel": "Sempre rotule o Open Finance claramente, adicione uma legenda ou selo explícito indicando 'Open Finance' onde quer que se aplique.",
+  "explicitPaymentRails": "Torne os trilhos de pagamento explícitos, mostre todas as opções Pix antecipadamente sem padrões ou fluxos ocultos, agrupados claramente sob uma única seção 'Pague com Pix'.",
+  "showProgress": "Mostre o progresso e contexto para que o usuário saiba onde está na jornada de pagamento.",
+  "openFinanceLogo": "Logo do Open Finance destacado para o usuário",
+  "balanceWarning": "Avise sobre o saldo, informe claramente ao usuário que ele deve ter fundos suficientes para concluir a transação.",
+  "markUnavailableBanks": "Marque bancos indisponíveis com texto de status explícito e impeça sua seleção.",
+  "specificOutageMessages": "Mostre mensagens específicas de interrupção, quando houver falhas conhecidas com um banco",
+  "optionalDescription": "Permita descrição opcional apenas para o usuário colocar explicação personalizada para a transação.",
+  "balanceReminder": "Lembrete de saldo suficiente claramente exibido",
+  "termsAndConditionsLink": "Redirecionamento claro para termos e condições",
+  "redirectionRoute": "Rota de redirecionamento e tempo claramente exibidos",
+  "conciseSummary": "Apresente um resumo conciso da operação na tela de sucesso.",
+  "viewReceiptAction": "Forneça uma ação principal para visualizar o comprovante completo.",
+  "labelPixOpenFinance": "Rotule claramente o fluxo como \"Pix via Open Finance\" e que o débito é da conta bancária do usuário.",
+  "explainAuthorization": "Explique que a autorização acontece no próprio aplicativo ou canal bancário do usuário, não na página do comerciante.",
+  "primaryCTA": "Use um único botão de chamada para ação primária que descreva a próxima etapa (por exemplo, \"Continuar\").",
+  "consentLine": "Inclua uma linha de consentimento clara declarando que, ao continuar, o usuário concorda com Termos e Condições específicos, com um link clicável.",
+  "stepByStepSummary": "Mostre um resumo curto passo a passo do que acontecerá a seguir (selecionar banco → redirecionar → retornar e confirmar).",
+  "displayProvider": "Exiba o provedor/tecnologia responsável (por exemplo, \"powered by Juspay via Open Finance\") para tornar o iniciador identificável",
+  "explainWhyData": "Explique por que os dados são necessários, inclua texto de ajuda.",
+  "guideFormat": "Oriente o formato correto do documento: use espaços reservados com os padrões oficiais para evitar entradas inválidas.",
+  "blockContinuation": "Bloqueie a continuação até que seja válido, mantenha o botão de ação desabilitado até que os campos obrigatórios sejam preenchidos em um formato válido.",
+  "informativeSection": "Inclua na seção informativa para usuários que desejam informações adicionais sobre requisitos e limitações.",
+  "provideBankSearch": "Forneça pesquisa de banco, inclua um campo de pesquisa para que o usuário possa encontrar rapidamente seu banco. Apenas instituições elegíveis devem ser mostradas com nomes e logotipos oficiais.",
+  "mentionInitiator": "Mencione claramente o Iniciador e o Open Finance para mostrar claramente quem está fornecendo o serviço.",
+  "redirectionScreen": "Apresente uma tela dedicada informando ao usuário que ele está sendo redirecionado agora.",
+  "mentionSelectedBank": "Mencione explicitamente o banco selecionado para que o usuário saiba para onde está indo.",
+  "intermediateStatus": "Exiba um status intermediário claro depois que o usuário retornar do banco, caso o pagamento esteja demorando mais para processar.",
+  "explainLongerProcessing": "Explique que o processamento pode demorar mais do que o normal e diga explicitamente ao usuário para aguardar enquanto a transação está sendo concluída.",
+  "warnNotToClose": "Avise o usuário para não fechar o aplicativo ou usar a navegação de volta até que o pagamento tenha terminado de processar, para evitar transações duplicadas ou órfãs.",
+  "maintainAttribution": "Mantenha a atribuição do iniciador nesta tela para que o usuário sempre saiba qual instituição é responsável pelo serviço de iniciação.",
+  "offerCancelOption": "Ofereça uma opção visível para cancelar a transação.",
+  "singlePrimaryCTA": "Use um único CTA primário para consentimento que represente claramente a autorização de pagamento do usuário.",
+  "provideSafeExit": "Forneça uma maneira segura de abortar usando uma ação secundária que permita ao usuário recusar ou sair antes de confirmar.",
+  "keepAttribution": "Mantenha a atribuição do iniciador e do Open Finance visível para que o usuário sempre saiba qual instituição é responsável pelo serviço de iniciação.",
+  "showProcessingStatus": "Mostre um status de processamento claro",
+  "highlightAmount": "Destaque o valor pago de forma proeminente na tela de sucesso para que o usuário possa confirmar instantaneamente o valor que foi debitado.",
+  "safeExitAction": "Forneça uma ação de saída segura para retornar ao comerciante ou para casa",
+
+  "payloadCards": {
+    "requestHeader": "Cabeçalho da Requisição",
+    "requestBody": "Corpo da Requisição",
+    "responseBody": "Corpo da Resposta"
+  },
+  
+  "linkingInfoNotice": "O resumo da solicitação de vinculação estará disponível para consulta no Ambiente de Gerenciamento de Contas Vinculadas. A vinculação da conta pode ser revogada a qualquer momento.",
+  "biometricValidation": "O Iniciador deve solicitar que o usuário valide a geração da chave utilizando suas credenciais (biometria, senha ou PIN).",
+  "linkingCompleted": "O usuário deve ser notificado quando a vinculação da conta for concluída. A mensagem pode ser redigida de acordo com a linguagem do Iniciador.",
+  "ofguidelinesmet" : "Todas as Diretrizes de UX do Open Finance atendidas",
+  
+   "auditTrail": {
+    "title": "Trilha de Auditoria",
+    "step1_fetch": "Passo 1. Buscar lista de bancos",
+    "step2_token": "Passo 2: Solicitar token de acesso",
+    "bio_step3_enrollment": "Passo 3: Criar inscrição",
+    "bio_step4_risk": "Passo 4: Enviar sinais de risco",
+    "bio_step5_par": "Passo 5: Chamar PAR para obter URI de solicitação",
+    "bio_step6_redirect": "Passo 6: Redirecionando para o aplicativo do banco",
+    "bio_step7_redirect_back": "Passo 7: O banco redireciona para o aplicativo do comerciante com código de autenticação e estado",
+    "bio_step8_token": "Passo 8: Obter token de acesso",
+    "bio_step9_fido": "Passo 9: Buscar opções FIDO do banco",
+    "bio_step10_webauthn": "Passo 10: Invocar a função Web AuthN do dispositivo com os parâmetros necessários",
+    "bio_step11_token": "Passo 11: Obter token de acesso",
+    "bio_step12_register": "Passo 12: Registrar credenciais FIDO no banco",
+    "bio_step13_token": "Passo 13: Obter token de acesso",
+    "bio_step14_consent": "Passo 14: Criar consentimento",
+    "bio_step15_sign": "Passo 15: Enviar opções FIDO para o banco",
+    "bio_step16_token": "Passo 16: Obter token de acesso",
+    "bio_step17_authorize": "Passo 17: Autorizar credenciais FIDO do dispositivo no banco",
+    "bio_step18_payment": "Passo 18: Criar pagamento",
+    "bio_step19_poll": "Passo 19: Verificar status",
+    "pisp_step3_consent": "Passo 3: Criar consentimento",
+    "pisp_step4_par": "Passo 4: Chamar PAR para obter URI de solicitação",
+    "pisp_step5_redirect": "Passo 5. Redirecionando para o aplicativo do comerciante com authCode e estado",
+    "pisp_step6_token": "Passo 6: Obter token de acesso",
+    "pisp_step7_payment": "Passo 7: Criar pagamento",
+    "pisp_step8_poll": "Passo 8: Verificar status"
+  },
+   "simulator": {
+    "title": "Simulador de Fluxo",
+    "layout": "Layout",
+    "layoutTypes": {
+      "boxed": "Em Caixa",
+      "fullwidth": "Largura Total"
+    },
+    "colors": "Cores",
+    "typography": "Tipografia",
+    "formFields": "Campos de Formulário",
+    "language": "Idioma",
+    "fields": {
+      "primaryColor": "Cor Primária",
+      "secondaryTextColor": "Cor Secundária do Texto",
+      "backgroundColor": "Cor de Fundo",
+      "primaryTextColor": "Cor do texto principal",
+      "baseFontSize": "Tamanho da Fonte Base",
+      "baseFontWeight": "Peso da Fonte Base",
+      "lineHeight": "Altura da Linha",
+      "fontFamily": "Família da Fonte",
+      "borderRadius": "Raio da Borda",
+      "labels": "Rótulos",
+      "language": "Idioma"
+    },
+    "options": {
+      "baseFontWeight": {
+        "light": "Leve",
+        "regular": "Regular",
+        "medium": "Médio",
+        "bold": "Negrito"
+      },
+      "labels": {
+        "above": "Acima",
+        "inline": "Na Linha"
+      },
+      "fontFamily": {
+        "Figtree": "Figtree",
+        "DM Sans": "DM Sans",
+        "Inter": "Inter",
+        "Roboto": "Roboto"
+      }
+    }
+  }
+}

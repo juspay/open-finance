@@ -1,0 +1,43 @@
+@import "tailwindcss";
+/* Custom CSS variables for the playground */
+:root {
+  --background: #ffffff;
+  --primary: #005ff6;
+  --text: #111111;
+  --font-family: 'Figtree', sans-serif;
+  --base-font-size: 1rem;
+  --line-height: 1.2;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
+  color: var(--text);
+  background-color: var(--background);
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdbdbd;
+}

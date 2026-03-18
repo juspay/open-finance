@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+
+.header {
+    padding: 24px;
+    background-color: #FF8201;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bodyContainer {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.title {
+    color: #89837E;
+    font-size: 14px;
+}
+
+.price {
+    color: #18191B;
+    font-size: 26px;
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+
+.bankNo {
+    color: #212529;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+.invoice {
+    color: #231D1A;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #E6E6E6;
+    padding: 24px 0;
+}
+
+.tableContent {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 24px;
+}
+
+.key {
+    color: #777;
+    font-size: 14px;
+}
+
+.value {
+    color: #18191B;
+    font-size: 14px;
+}
+
+.tableWrapper {
+    padding-top: 60px;
+}
+
+
+.footertitle{
+    color: #231D1A;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 38px 0 32px;
+}
+
+.footerbankNo{
+    font-size: 14px;
+    color: #89837E;
+    font-weight: 400;
+}
+
+.footertableContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 49px 0 60px;
+}
+
+.rowItem{
+    display: flex;
+    gap: 12px;
+}
+
+.footerButton{
+    padding-bottom: 32px;
+}

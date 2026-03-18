@@ -1,0 +1,125 @@
+{
+  "merchantName": "Present all key payment data together for the user.",
+  "openFinanceLabel": "Always label Open Finance clearly, add an explicit subtitle or badge indicating 'Open Finance' wherever it applies.",
+  "explicitPaymentRails": "Make payment rails explicit, show all Pix options upfront with no defaults or hidden flows, grouped clearly under a single 'Pay with Pix' section.",
+  "showProgress": "Show progress and context so the user knows where they are in the payment journey.",
+  "openFinanceLogo": "Open Finance logo highlighted to the user",
+  "balanceWarning": "Warn about balance, clearly inform the user they must have sufficient funds to complete the transaction.",
+  "markUnavailableBanks": "Mark banks that are unavailable with explicit status text and prevent their selection.",
+  "specificOutageMessages": "Show specific outage messages, when there are known failures with a bank",
+  "optionalDescription": "Allow optional description only for user to put in custom explanation for the transaction.",
+  "balanceReminder": "Sufficient balance reminder clearly displayed",
+  "termsAndConditionsLink": "Clear redirection to terms & conditions",
+  "redirectionRoute": "Redirection route and time clearly displayed",
+  "conciseSummary": "Present a concise summary of the operation on the success screen.",
+  "viewReceiptAction": "Provide a primary action to view the full receipt.",
+  "labelPixOpenFinance": "Clearly label the flow as \"Pix via Open Finance\" and that the debit is from the user's bank account.",
+  "explainAuthorization": "Explain that authorization happens in the user's own banking app or channel, not on the merchant's page.",
+  "primaryCTA": "Use a single, primary call-to-action button that describes the next step (e.g., \"Continue\").",
+  "consentLine": "Include a clear consent line stating that, by continuing, the user agrees to specific Terms & Conditions, with a tappable link.",
+  "stepByStepSummary": "Show a short, step-by-step summary of what will happen next (select bank → redirect → return and confirm).",
+  "displayProvider": "Display the responsible provider/technology (e.g., \"powered by Juspay via Open Finance\") to make the initiator identifiable",
+  "explainWhyData": "Explain why data is needed, include helper text.",
+  "guideFormat": "Guide correct document format: use placeholders with the official patterns to avoid invalid entries.",
+  "blockContinuation": "Block continuation until valid, keep the action button disabled until the required fields are filled in a valid format.",
+  "informativeSection": "Include in informative section for users who want additional information about requirements and limitations.",
+  "provideBankSearch": "Provide bank search, include a search field so the user can quickly find their bank. Only eligible institutions should be shown with official names and logos.",
+  "mentionInitiator": "Clearly mention the Initiator and Open Finance to clearly show who is providing the service.",
+  "redirectionScreen": "Present a dedicated screen telling the user they are being redirected right now.",
+  "mentionSelectedBank": "Explicitly mention the selected bank so the user knows where they're going.",
+  "intermediateStatus": "Display a clear intermediate status after the user returns from the bank, in case the payment is taking longer to process.",
+  "explainLongerProcessing": "Explain that processing may take longer than usual and explicitly tell the user to wait while the transaction is being completed.",
+  "warnNotToClose": "Warn the user not to close the app or use the back navigation until the payment has finished processing, to avoid duplicate or orphan transactions.",
+  "maintainAttribution": "Maintain the initiator attribution on this screen so the user always knows which institution is responsible for the initiation service.",
+  "offerCancelOption": "Offer a visible option to cancel the transaction.",
+  "singlePrimaryCTA": "Use a single primary CTA for consent that clearly represents the user's authorization of the payment.",
+  "provideSafeExit": "Provide a safe way to abort using a secondary action that lets the user decline or exit before confirming.",
+  "keepAttribution": "Keep initiator and Open Finance attribution visible so the user always knows which institution is responsible for the initiation service.",
+  "showProcessingStatus": "Show a clear processing status",
+  "highlightAmount": "Highlight the paid amount prominently on the success screen so the user can instantly confirm the value that was debited.",
+  "safeExitAction": "Provide a safe exit action to return to the merchant or home",
+
+  "payloadCards": {
+    "requestHeader": "Request Header",
+    "requestBody": "Request Body",
+    "responseBody": "Response Body"
+  },
+  
+  "linkingInfoNotice": "The summary of the linking request will be available for consultation in the Linked Accounts Management Environment. The account link can be revoked at any time.",
+  "biometricValidation": "The Initiator must request that the user validate the key generation using their credentials (Biometrics, password, or PIN).",
+  "linkingCompleted": "The user must be notified when the account linking is completed. The message can be written according to the Initiator's language.",
+  "ofguidelinesmet" : "All Open Finance UX Guidelines met",
+  
+   "auditTrail": {
+    "title": "Audit Trail",
+    "step1_fetch": "Step 1. Fetch Bank List",
+    "step2_token": "Step 2: Request for access token",
+    "bio_step3_enrollment": "Step 3: Create Enrollment",
+    "bio_step4_risk": "Step 4: Send Risk Signals",
+    "bio_step5_par": "Step 5:  Call PAR to get request URI",
+    "bio_step6_redirect": "Step 6: Redirecting to bank app",
+    "bio_step7_redirect_back": "Step 7: Bank redirects to merchant app with auth code and state",
+    "bio_step8_token": "Step 8: Get accessToken",
+    "bio_step9_fido": "Step 9: Fetch FIDO Options from Bank",
+    "bio_step10_webauthn": "Step 10: Invoke the device Web AuthN function with required params",
+    "bio_step11_token": "Step 11: Get accessToken",
+    "bio_step12_register": "Step 12: Register FIDO Credentials with Bank",
+    "bio_step13_token": "Step 13: Get accessToken",
+    "bio_step14_consent": "Step 14: Create Consent",
+    "bio_step15_sign": "Step 15:  Send FIDO Options to the bank",
+    "bio_step16_token": "Step 16: Get accessToken",
+    "bio_step17_authorize": "Step 17: Authorize device FIDO Credentials with bank",
+    "bio_step18_payment": "Step 18: Create payment",
+    "bio_step19_poll": "Step 19: Poll status",
+    "pisp_step3_consent": "Step 3: Create consent",
+    "pisp_step4_par": "Step 4: Call PAR to get request URI",
+    "pisp_step5_redirect": "Step 5. Redirecting to merchant app with authCode and state",
+    "pisp_step6_token": "Step 6: Get accessToken",
+    "pisp_step7_payment": "Step 7: Create payment",
+    "pisp_step8_poll": "Step 8: Poll status"
+  },
+  
+   "simulator": {
+    "title": "Flow Simulator",
+    "layout": "Layout",
+    "layoutTypes": {
+      "boxed": "Boxed",
+      "fullwidth": "Full Width"
+    },
+    "colors": "Colors",
+    "typography": "Typography",
+    "formFields": "Form Fields",
+    "language": "Language",
+    "fields": {
+      "primaryColor": "Primary Color",
+      "secondaryTextColor": "Secondary Text Color",
+      "backgroundColor": "Background Color",
+      "primaryTextColor": "Primary Text Color",
+      "baseFontSize": "Base Font Size",
+      "baseFontWeight": "Base Font Weight",
+      "lineHeight": "Line Height",
+      "fontFamily": "Font Family",
+      "borderRadius": "Border Radius",
+      "labels": "Labels",
+      "language": "Language"
+    },
+    "options": {
+      "baseFontWeight": {
+        "light": "Light",
+        "regular": "Regular",
+        "medium": "Medium",
+        "bold": "Bold"
+      },
+      "labels": {
+        "above": "Above",
+        "inline": "Inline"
+      },
+      "fontFamily": {
+        "Figtree": "Figtree",
+        "DM Sans": "DM Sans",
+        "Inter": "Inter",
+        "Roboto": "Roboto"
+      }
+    }
+  }
+}

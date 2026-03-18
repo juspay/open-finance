@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0 16px;
+}
+
+.text{
+    color: rgba(0, 0, 0, 0.40);
+    font-size: 10px;
+    font-weight: 400;
+    padding-right: 5px;
+}
+
+
+.juspayLogo{
+    background-image: url('../../../../public/image/componentImages/JUSPAYlogo.svg');
+    width: 46px;
+    height: 10px;
+}
+
+.bottom{
+    width: 100%;
+}

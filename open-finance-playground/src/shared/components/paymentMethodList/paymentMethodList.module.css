@@ -1,0 +1,342 @@
+.containerWrapper {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+
+}
+
+
+.containerWrapper:active {
+    transform: scale(0.95);
+}
+
+.wrapper{
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.disabledCard{
+  opacity: 0.5;
+  pointer-events: none;
+}
+.container {
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border-bottom: 1px dashed #EDEDED;
+    cursor: pointer;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    user-select: none; 
+}
+.imageContainer{
+    display: flex;
+    width: 45px;
+    height: 45px;
+    padding: 13px 10px 13px 10px;
+    justify-content: center;
+    align-items: center;
+    border : 1px solid #EDEDED;
+    border-radius: 40px;
+    background-color: #FFF;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.borderBottom{
+    border-bottom: none;
+}
+.line{
+    height: 8px;
+    width: 1px;
+    border: 1px solid #E4E5E7;
+    display: flex;
+    box-sizing: border-box;
+}
+.desc{
+    color: #18191B;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-family: 'Inter Display SemiBold';
+}
+.biometrico{
+    color: #777777;
+    font-weight: 400;
+    font-size: 13px;
+    font-family: 'Inter Display';
+}
+.methods{
+    color: #777;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.buttonWrapper {
+    overflow: hidden;
+    max-height: 0; 
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.buttonWrapper.active {
+    max-height: 80px; 
+    opacity: 1;
+}
+
+
+
+.arrowContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.descContainer{
+    flex: 1;
+}
+
+.bottomContainer{
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+
+.closeButton {
+    position: absolute;
+    top: -40px; 
+    right: 16px; 
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    z-index: 10;
+    background-color: #fff;
+    border: 2px solid #EDEDED;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.closeButton:hover {
+    transform: scale(1.1);
+}
+
+.ButtonParent{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 12px;
+    justify-content: center;
+    gap: 2px;
+}
+
+.contentContainer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+
+.container.selected {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.selectCircleContainer {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectCircle {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #C7CBD1;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+
+.selectCircle.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    position: relative;
+}
+
+.selectCircle.active::after {
+    content: ""; 
+    position: absolute;
+    width: 12px; 
+    height: 12px; 
+    background-image: url('../../../../public/image/componentImages/selecttick.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -38%);
+} 
+
+
+.terms{
+    color: #555555;
+    font-size: 12px;
+    text-align: left;
+    padding-top: 10px;
+    cursor: default;
+}
+
+.clickableTerms{
+    color: #18191B;
+    cursor: pointer;
+    font-family: 'Inter Display SemiBold';
+}
+.borderNull{
+    border: 0;
+}
+.imageContainer {
+    position: relative;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fff;
+    overflow: visible;
+  }
+  
+  .image {
+    position: relative;
+    z-index: 2; 
+  }
+  
+  .ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px; 
+    height: 40px;
+    background: rgba(255, 140, 0, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    animation: rippleEffect 2s infinite ease-out;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: radial-gradient(circle at center, transparent 30%, black 45%);
+    -webkit-mask-image: radial-gradient(circle at center, transparent 30%, black 45%);
+  }
+  
+  @keyframes rippleEffect {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0;
+    }
+  }
+
+
+  .arrowImage {
+    transition: transform 1s ease-in-out;
+  }
+  
+  .containerWrapper:hover .arrowImage {
+    animation: blink 1s infinite ease-in-out;
+  }
+  
+  
+  .outage{
+    color: #737373;
+    padding: 2px 8px;
+    background-color: #F8F9FA;
+    width: fit-content;
+    font-size: 10px;
+    font-family: 'Geist', 'DM Sans', sans-serif;
+    letter-spacing: 0.02px;
+    line-height: 14px;
+    border-radius: 4px;
+  }
+  
+  
+.warningBox {
+  position: relative;
+  background-color: #FFF4F0;
+  color: #CC3A00;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: fit-content;
+  box-sizing: border-box;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  
+}
+
+/* The small "pointer" triangle above the box */
+.warningBox::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 13px;                     /* adjust horizontally */
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff4f0; /* same as background */
+}
+  
+.highlightCircle {
+  position: relative;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Ripple effect using pseudo-elements */
+.highlightCircle::before,
+.highlightCircle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #016bff;
+  opacity: 0;
+  animation: rippleEffect 1.8s infinite ease-out;
+}
+
+.highlightCircle::after {
+  animation-delay: 0.9s;
+}
+
+.blackRipple::before,
+.blackRipple::after {
+  border-color: black;
+}
+
+
+@keyframes blink {
+  from { transform: translateX(-2px); }
+  to { transform: translateX(2px); }
+}

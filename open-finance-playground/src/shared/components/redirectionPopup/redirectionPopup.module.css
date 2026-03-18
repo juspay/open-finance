@@ -1,0 +1,103 @@
+
+.openfinance{
+    background-image: url("../../../../public/image/componentImages/openFinance.svg");
+    width: 135px;
+    height: 24px;
+    margin-top: 32px;
+
+}
+.imageContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+}
+.nsImageContainer{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #1B85FF;
+    margin-right: 84px;
+}
+.nsImage{
+    background-image: url("../../../../public/image/bankImage/NS.svg");
+    width: 26px;
+    height: 28px;
+}
+.caretRightContainer {
+    display: flex;
+    position: relative;
+    bottom: 16px;
+    right: 72px;
+}
+.caretRight {
+    background-image: url("../../../../public/image/componentImages/CaretRight.svg");
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+    animation: sequenceAnimation 3s infinite; /* Infinite loop */
+}
+.caretRight:nth-child(1) {
+    left: 0px;
+    animation-delay: 0s;
+}
+
+.caretRight:nth-child(2) {
+    left: 15px; 
+    animation-delay: 0.3s; 
+
+}
+
+.caretRight:nth-child(3) {
+    left: 30px; 
+    animation-delay: 0.6s; 
+
+}
+.itauBankContainer{
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #FF8301;
+}
+.itauBank{
+    background-image: url("../../../../public/image/bankImage/itau.svg");
+    width: 48px;
+    height: 48px;
+}
+
+.headerText{
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content{
+    color: #61646B;
+    font-size: 16px;
+    text-align: start;
+    padding-right: 21px;
+    margin: 10px 0 30px 0;
+    line-height: 20px;
+}
+
+.total{
+    color: #61646B;
+    font-weight: 600;
+    
+}
+
+@keyframes sequenceAnimation {
+    0%, 25% { opacity: 1; }  
+    30%, 50% { opacity: 1; } 
+    55%, 75% { opacity: 1; } 
+    80%, 100% { opacity: 0; } 
+}
+
+

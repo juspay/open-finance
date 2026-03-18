@@ -1,0 +1,182 @@
+.baseContainer{
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content : space-between;
+  padding :12px;
+  background-color: #F3F4FA;
+  overflow: hidden;
+  background-image: url('../../../public/image/ofPlayground/background-image.svg');
+}
+
+.mobileViewContainer{
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebarContainer{
+  background-color: #FFFFFF;
+  display: flex;
+  max-width: 372px;
+  border-radius : 16px;
+  padding-top: 24px;
+  font-family: var(--font-dm-sans), sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  flex :1;
+  
+}
+
+@media (max-width: 1440px) {
+  .sidebarContainer {
+    max-width: 344px;
+  }
+}
+
+.topBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  background: transparent;
+}
+
+/* Container to position the arrow */
+.selectWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The select itself */
+.customSelect {
+  appearance: none; /* hide native arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: semi-bold;
+  color: #333333;
+  padding-right: 28px; /* space for custom arrow */
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+}
+
+/* Custom arrow image */
+.arrowIcon {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+}
+
+
+
+.bottomBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.deviceToggle {
+  display: flex;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.deviceButton {
+  padding: 6px 16px;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s ease;
+}
+
+.deviceButton:hover {
+  background: #f3f4f6;
+}
+
+.active {
+  background: #111111;
+  color: #ffffff;
+}
+
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+.dropdownMenu {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 6px;
+  list-style: none;
+  padding: 6px 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  font-family: 'DM Sans', sans-serif;
+  width: max-content;
+  min-width: 150px;
+  text-align: flex-start;
+}
+
+.option {
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+
+.active {
+  background: #eaf8e8;
+  color: #3c8256;
+  font-weight: 500;
+}

@@ -1,0 +1,511 @@
+.mobileContainer {
+  width: 390px;              
+  height: 85%;           
+  border: 8px solid white;
+  border-radius: 40px;
+  background: #f6f7f7;
+  margin: 0 auto;           
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;          
+  align-self: center;
+  margin: 10px;
+  max-height: 844px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+
+@media (max-width: 1440px) {
+  .mobileContainer {
+    height: 76.5% ;
+  }
+}
+
+.terms{
+    color: #555555;
+    font-size: 12px;
+    text-align: left;
+    padding-top: 10px;
+    cursor: default;
+}
+
+.clickableTerms{
+    color: #18191B;
+    cursor: pointer;
+    font-family: 'Inter Display SemiBold';
+}
+
+.footerContainer{
+  display: flex;
+  flex-direction: column;
+  padding : 16px;
+  border-radius: 17px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageNumber{
+    font-weight: 500;
+    font-size: 10px;
+    color: #555555;
+    background-color: #F8F9FA;
+    width: fit-content;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  font-family: "DM Sans", sans-serif;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.headerSection{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  align-self: flex-start;
+    
+}
+
+.title{
+  line-height: 16px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.subTitle{
+  font-size: 12px;
+  color: #61646B;
+}
+
+.dotPlaceholder::placeholder{
+    color: #D6D8DB;
+    font-size: 14px;
+}
+
+.inputContainer{
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.infoContainer{
+  display: flex;
+  background-color: #FFF7E5;
+  border-radius: 8px;
+  gap: 8px;
+  padding: 8px;
+  
+}
+
+.infoText{
+  color: #B27700;
+  font-weight: bold;
+}
+
+.infoTextHeading{
+  color : #B27700;
+  font-size: 12px;
+  letter-spacing: 0.01;
+  line-height: 16px;
+}
+
+.importantNoteContainer{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.linkHeading{
+  color: #555555;
+  cursor: pointer;
+  font-size: 12px;
+
+}
+
+.linkStyle{
+  color: #005FE6;
+}
+
+
+.imageContainer{
+    display: flex;
+    align-items: center;
+    margin: 48px 0;
+}
+.nsImageContainer{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #1B85FF;
+    margin-right: 84px;
+    
+}
+
+.nsImageContainer2{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #1B85FF;
+    
+}
+.nsImage{
+    background-image: url("../../../../../../public/image/bankImage/NS.svg");
+    width: 26px;
+    height: 28px;
+}
+.caretRightContainer {
+    display: flex;
+    position: relative;
+    bottom: 16px;
+    right: 72px;
+}
+.caretRight {
+    background-image: url("../../../../../../public/image/componentImages/CaretRight.svg");
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+    animation: sequenceAnimation 3s infinite; /* Infinite loop */
+}
+.caretRight:nth-child(1) {
+    left: 0px;
+    animation-delay: 0s;
+}
+
+.caretRight:nth-child(2) {
+    left: 15px; 
+    animation-delay: 0.3s; 
+
+}
+
+.caretRight:nth-child(3) {
+    left: 30px; 
+    animation-delay: 0.6s; 
+
+}
+.itauBankContainer{
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #820AD1;
+    box-sizing: border-box;
+    height: 60px;
+    width: 60px;
+}
+
+.itauBankContainer2{
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: #820AD1;
+    margin-right: 84px;
+    
+    
+}
+
+.headerText2{
+  text-align: center;
+  margin-top: 44px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.itauBank{
+    background-image: url("../../../../../../public/image/bankImage/itau.svg");
+    width: 48px;
+    height: 48px;
+}
+
+.headerText{
+    margin-top: 44px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content{
+    color: #61646B;
+    font-size: 16px;
+    text-align: center;
+    padding: 0 30px;
+    margin: 10px 0 10px 0;
+    line-height: 20px;
+}
+
+.total{
+    color: #61646B;
+    font-weight: 600;
+    
+}
+
+.infoContainer{
+  padding: 8px;
+  background-color: #FFF7E5;
+  display: flex;
+  gap:  12px;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  line-height: 16px;
+  border-radius: 8px;
+  margin-top: 24px;
+  color: #B27700;
+  align-items: flex-start;
+}
+
+.infoContainer2{
+  padding: 8px;
+  background-color: #F8F9FA;
+  display: flex;
+  gap:  12px;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  line-height: 16px;
+  border-radius: 8px;
+  margin-top: 24px;
+  color: #555555;
+  align-items: flex-start;
+  font-family: 'Onest';
+  
+}
+
+.bankPage{
+  background-color: #820AD1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;  
+  border-radius: 24px;
+}
+
+.meubankContainer{
+  position: relative;  
+  height: 100%;
+}
+
+.timerContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  height: 100%;
+  padding: 24px;
+  padding-top: 20%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.textContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.timerHeader{
+  color: #1D1D1F;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.timerContent{
+  color: #737373;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.spin {
+    animation: spin 2s linear infinite;
+}
+
+.spinLogo {
+    animation: spin 2s linear infinite;
+    display: flex;
+    align-self: center;
+} 
+.juspayLoaderContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  gap: 32px;
+  margin-top: 70%;
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+@keyframes sequenceAnimation {
+    0%, 25% { opacity: 1; }  
+    30%, 50% { opacity: 1; } 
+    55%, 75% { opacity: 1; } 
+    80%, 100% { opacity: 0; } 
+}
+
+
+
+
+.mobileViewContainer{
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  background-color: black;
+}
+
+
+
+.redirectionContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.imageContainerPix{
+    display: flex;
+    align-items: center;
+    margin: 40px 0 20px 0;
+    justify-content: left;
+}
+
+.redirectionHeaderContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.redirectionHeader{
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  line-height: 10px;
+}
+
+.redirectionSubHeader{
+  font-size: 12px;
+  line-height: 16px;
+  color : #555555;
+  letter-spacing:  0.01em;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  
+}
+
+.headerTextPix{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Geist', 'DM Sans', sans-serif;
+    color: #18191B;
+    line-height: 20px;
+    margin-top: 34px;
+}
+
+
+.stepsContainer{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.stepItem{
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stepNumber{
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: #E5F0FF;
+  color : #005FE6;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 500;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.stepText{
+  font-size: 12px;
+  line-height: 16px;
+  color : #555555;
+  letter-spacing:  0.01em;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 200;
+}
+
+.termsAConditionsContainer{
+  font-size: 12px;
+  line-height: 16px;
+  color : #555555;
+  letter-spacing:  0.01em;
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-weight: 200;
+  width: 62%;
+  text-align: center;
+  align-self: center;
+  margin: 16px 0 0;
+}
+
+
+.tnc{
+  color : #8B4513; 
+}
+
+.footerContainerPix{
+  padding:  30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.timerHeader2{
+  color: #1D1D1F;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  width: 60%;
+  
+}

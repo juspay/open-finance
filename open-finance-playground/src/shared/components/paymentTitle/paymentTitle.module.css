@@ -1,0 +1,27 @@
+.container{
+    padding: 27px 20px 8px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+.titleLabel{
+    color: #595959;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.offers{
+    color: #3C991B;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.dot{
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.pixIcon{
+    margin-right: 12px;
+}

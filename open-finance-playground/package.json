@@ -1,0 +1,52 @@
+{
+  "name": "euler-demo-app",
+  "version": "0.1.0",
+  "description": "Next.js demo app showcasing Open Finance payment flows with Juspay",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juspay/euler-demo-app.git"
+  },
+  "author": "Juspay",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.1.0",
+    "@capacitor/cli": "^7.1.0",
+    "@capacitor/core": "^7.1.0",
+    "@capacitor/ios": "^7.1.0",
+    "axios": "^1.8.4",
+    "framer-motion": "^12.5.0",
+    "html2canvas": "^1.4.1",
+    "i18next": "^25.7.3",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
+    "jspdf": "^4.0.0",
+    "lottie-react": "^2.4.1",
+    "next": "^15.2.6",
+    "pdfkit": "^0.17.2",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "react-i18next": "^16.5.0",
+    "react-icons": "^5.5.0",
+    "react-lottie-player": "^2.1.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "^4.1.15",
+    "@types/html2canvas": "^0.5.35",
+    "@types/node": "^20",
+    "@types/pdfkit": "^0.17.4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.15",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.7.0"
+}

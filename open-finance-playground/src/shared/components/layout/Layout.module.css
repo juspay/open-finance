@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    animation: slideInX 0.3s ease-in-out;
+}
+
+.clickToPayContent{
+    margin-top: 16px;
+    overflow: auto;
+    box-sizing: border-box;
+    justify-content: center;
+    background-color: #fff;
+    
+}
+
+.content {
+    flex: 1 1;
+    overflow: auto;
+    box-sizing: border-box;
+    justify-content: center;
+    background-color: #fff;
+    
+
+}
+
+.footer{
+    background-color: #fff;
+    border-radius: 16px 16px 0 0;
+
+}
+
+
+@keyframes slideInX {
+    0% {
+        transform: translateX(0.5%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
