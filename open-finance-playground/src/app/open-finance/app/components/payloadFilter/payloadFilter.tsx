@@ -44,7 +44,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       stepTitle: t("auditTrail.step1_fetch"),
       time: logTime,
       requestHeaders:
-        "curl --location 'https://data.directory.openbankingbrasil.org.br/participants'",
+        "curl -s 'https://data.directory.openbankingbrasil.org.br/participants' | jq '.[] | .AuthorisationServers[] | select(    any(.ApiResources[]?; .ApiFamilyType == \"payments-pix-recurring-payments\"))| { name: .CustomerFriendlyName, icon: .CustomerFriendlyLogoUri }'",
     }, ],
     5: [{
       stepTitle: t("auditTrail.step2_token"),
@@ -814,7 +814,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       stepTitle: t("auditTrail.step1_fetch"),
       time: logTime,
       requestHeaders:
-        "curl --location 'https://data.directory.openbankingbrasil.org.br/participants'",
+          "curl -s 'https://data.directory.openbankingbrasil.org.br/participants' | jq '.[] | .AuthorisationServers[] | select(    any(.ApiResources[]?; .ApiFamilyType == \"payments-pix-recurring-payments\"))| { name: .CustomerFriendlyName, icon: .CustomerFriendlyLogoUri }'",
     }, ],
     5: [{
       stepTitle: t("auditTrail.step2_token"),
@@ -843,7 +843,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
               localInstrument: "MANU",
             },
             currency: "BRL",
-            amount: "567.00",
+            amount: "467.00",
             type: "PIX",
             date: currentISODate, // DYNAMIC
           },
@@ -885,7 +885,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
             type: "PIX",
             date: currentISODate, // DYNAMIC
             currency: "BRL",
-            amount: "567.00",
+            amount: "467.00",
             details: {
               localInstrument: "MANU",
               creditorAccount: {
@@ -933,7 +933,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
                 localInstrument: "MANU",
               },
               currency: "BRL",
-              amount: "567.00",
+              amount: "467.00",
               type: "PIX",
               date: currentISODate, // DYNAMIC
             },
@@ -975,7 +975,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
               type: "PIX",
               date: currentISODate, // DYNAMIC
               currency: "BRL",
-              amount: "567.00",
+              amount: "467.00",
               details: {
                 localInstrument: "MANU",
                 creditorAccount: {
@@ -1120,7 +1120,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
             {
               "payment": {
                 "currency": "BRL",
-                "amount": "567.00"
+                "amount": "467.00"
               },
               "cnpjInitiator": "initiator/your_cnpj",
               "consentId": DYNAMIC_CONSENT_ID, // DYNAMIC
@@ -1152,7 +1152,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
               "localInstrument": "MANU",
               "cnpjInitiator": "initiator/your_cnpj",
               "payment": {
-                "amount": "567.00",
+                "amount": "467.00",
                 "currency": "BRL"
               },
               "creditorAccount": {
@@ -1204,7 +1204,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
             "localInstrument": "MANU",
             "cnpjInitiator": "initiator/your_cnpj",
             "payment": {
-              "amount": "567.00",
+              "amount": "467.00",
               "currency": "BRL"
             },
             "creditorAccount": {

@@ -26,7 +26,7 @@ interface SelectBankContainerProps {
 }
 const SelectBankContainer: React.FC<SelectBankContainerProps> = ({inputStyles,titleTextStyle,subTextStyle, selectTick, currentState, setCurrentState,goToPreviousStep, stepStyle, selectContainers})=>{
     const searchParams = useSearchParams();
-    const total = searchParams.get("total") || "567";
+    const total = searchParams.get("total") || "467";
     const items = searchParams.get("items") || "3";
 
     const [searchTerm, setSearchTerm] = useState("");

@@ -45,7 +45,7 @@ const ConfirmBiometricoDetailsContainer: React.FC<ConfirmBiometricProp> = ({
   const searchParams = useSearchParams();
   
 
-  const total = searchParams.get("total") || 567;
+  const total = searchParams.get("total") || 467;
   const items = searchParams.get("items") || 3;
   const auth = searchParams.get("auth") || "false";
   return (
@@ -92,7 +92,7 @@ const ConfirmBiometricoDetailsContainer: React.FC<ConfirmBiometricProp> = ({
               Valor a pagar
             </span>{" "}
             <span className={style.tableValue} style={titleTextStyle}>
-              ${total}
+              R$ {total}
             </span>
           </div>
           <div className={style.tableRow} style={titleTextStyle? {paddingBottom: '24px'}:undefined}>
@@ -111,7 +111,7 @@ const ConfirmBiometricoDetailsContainer: React.FC<ConfirmBiometricProp> = ({
                     </>
                 ) : (
                     <>
-                        <div className={style.tableValue} style={{...titleTextStyle, textAlign: 'end'}}>Bruno Oliveira</div>
+                        <div className={style.tableValue} style={{...titleTextStyle, textAlign: 'end'}}>Alice B. Charlie</div>
                         <div className={style.tableSubValue} style={{fontSize:`12px`}}>Meu Banco - Conta Corrente</div>
                     </>
                 )}
@@ -127,9 +127,9 @@ const ConfirmBiometricoDetailsContainer: React.FC<ConfirmBiometricProp> = ({
                 style={{...titleTextStyle, textAlign: 'end'}}
                 id="merchantName"
               >
-                {!titleTextStyle? "Nespresso Coffee" : "<Merchant Name>"}
+                {!titleTextStyle? "Nespresso Coffee" : "MyStore Ltda"}
               </div>
-              <div className={style.tableSubValue} style={titleTextStyle?{fontSize:`12px`}:undefined}>CNPJ: **.456.769.897/**</div>
+              <div className={style.tableSubValue} style={titleTextStyle?{fontSize:`12px`}:undefined}>CNPJ: Y4.NNL.3ED/NAD9-04</div>
             </span>
           </div>
           <div className={style.tableRow} style={titleTextStyle? {paddingBottom: '24px'}:undefined}>
@@ -159,7 +159,7 @@ const ConfirmBiometricoDetailsContainer: React.FC<ConfirmBiometricProp> = ({
             type="text"
             id="descriptionId"
             value={description}
-            placeholder={"Descreva o motivo do pagamento"}
+            placeholder={"Informação opcional"}
             onChange={(e) => setDescription(e.target.value)}
             className={style.inputField}
             style={inputStyles}

@@ -32,7 +32,7 @@ const AppleFaceId: React.FC<PopupTemplateProps> = ({
   const [isConfirmed, setIsConfirmed] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const total = searchParams.get("total") || 567;
+  const total = searchParams.get("total") || 467;
   const items = searchParams.get("items") || 3;
   const [faceScanAnim, setFaceScanAnim] = useState<object | null>(null)
 
