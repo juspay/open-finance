@@ -9,7 +9,7 @@ const RedirectionPopup = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    const total = searchParams.get("total") || "567";
+    const total = searchParams.get("total") || "467";
     const items = searchParams.get("items") || "3";
     const paymentMethod = searchParams.get("paymentMethod") || "PIX";
 
@@ -83,7 +83,7 @@ const RedirectionPopup = () => {
                     </div>
                 </div>
                 <div className={style.headerText}>Autorize o seu pagamento</div>
-                <div className={style.content}>Você será redirecionado para autorizar o pagamento em seu banco. Confirme seu saldo e limite Pix para o valor de <span className={style.total}>R$ 567.</span></div>
+                <div className={style.content}>Você será redirecionado para autorizar o pagamento em seu banco. Confirme seu saldo e limite Pix para o valor de <span className={style.total}>R$ 467.</span></div>
 
                 <Button text="Autorizar no banco" onClick={handlePayment}/>
                 <Footer/>

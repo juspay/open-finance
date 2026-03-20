@@ -24,7 +24,7 @@ interface HeaderProps {
   
   }
 
-const Header: React.FC<HeaderProps> = ({ text ,desc=true, arrow=true, close=false, border=true, totalPrice=567, totalItem=3,styles,goToPreviousStep, timeAndIcon,stepsToGoBack}) => {
+const Header: React.FC<HeaderProps> = ({ text ,desc=true, arrow=true, close=false, border=true, totalPrice=467, totalItem=3,styles,goToPreviousStep, timeAndIcon,stepsToGoBack}) => {
    
 
     const router = useRouter();

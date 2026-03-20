@@ -40,8 +40,8 @@ const Location : React.FC<LocationProps> = ({ clickToPay, styles}) => {
                     </svg>
                 }
             </span>
-            <span className={style.deliveryText} style={styles?.locationText}>Entregando por  12 de abril  para</span>
-            <span className={style.locationText} style={styles?.deliveryText}>Casa - Estrada Principal 890</span>           
+            <span className={style.deliveryText} style={styles?.locationText}>Estrada Das Posses, 3000</span>
+            <span className={style.locationText} style={styles?.deliveryText}>Escritório</span>
         </div>
     )
 }
