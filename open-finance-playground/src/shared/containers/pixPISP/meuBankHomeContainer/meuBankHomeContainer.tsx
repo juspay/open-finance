@@ -14,8 +14,8 @@ const MeuBankHomeContainer :React.FC<MeuBankContainerProp> = ({ofPlayground, goT
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const name = searchParams.get("name") || "Bruno A Oliveria";
-  const total = searchParams.get("total") || "567";
+  const name = searchParams.get("name") || "Alice B. Charlie";
+  const total = searchParams.get("total") || "467";
   const items = searchParams.get("items") || "3";
   const paymentMethod = decodeURIComponent(searchParams.get("paymentMethod") || "PIX");
 
@@ -73,10 +73,10 @@ const MeuBankHomeContainer :React.FC<MeuBankContainerProp> = ({ofPlayground, goT
       footer={
         <PopupTemplate translateYval={400} height={448} isOpenval={true} isdrag={true} ofPlayground={ofPlayground}>
           <div className={style.footertitle} style={ofPlayground?{fontFamily: "Inter", fontWeight: 600}:undefined}>
-            {ofPlayground? "Você confirma o pagamento para a SN Enterprise via Pix?" : "Você confirma o pagamento em Mystore via Pix?"}
+            {ofPlayground? "Você confirma o pagamento para a MyStore Ltda via Pix?" : "Você confirma o pagamento em MyStore via Pix?"}
           </div>
           <div className={style.price} style={ofPlayground?{fontFamily: "Inter", fontWeight: 600}:undefined}>R$ {total}</div>
-          <div className={style.footerbankNo} style={ofPlayground?{fontFamily: "Inter"}:undefined}>{ofPlayground? "em 01/05/2022" : "A/c num: 230456645"}</div>
+          <div className={style.footerbankNo} style={ofPlayground?{fontFamily: "Inter"}:undefined}>{ofPlayground? "em " + (new Date()).toLocaleDateString('pt-BR') : "C/C: 230456645"}</div>
 
           <div className={style.footertableContainer} style={ofPlayground?{fontFamily: "Inter"}:undefined}>
             <div className={style.rowItem}>
@@ -85,7 +85,7 @@ const MeuBankHomeContainer :React.FC<MeuBankContainerProp> = ({ofPlayground, goT
             </div>
             <div className={style.rowItem}>
               <span className={style.key}>Agência</span>
-              <span className={style.value}>87675342323</span>
+              <span className={style.value}>1004</span>
             </div>
           </div>
           <div className={style.footerButton}>

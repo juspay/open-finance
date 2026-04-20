@@ -20,8 +20,8 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
   const searchParams = useSearchParams();
 
 
-    const name = searchParams.get("name") || "Bruno A Oliveria";
-    const total = searchParams.get("total") || "567";
+    const name = searchParams.get("name") || "Alice B. Charlie";
+    const total = searchParams.get("total") || "467";
     const paymentMethod = searchParams.get("paymentMethod") || "PIX";
 
     const getCurrentDateTime = () => {
@@ -39,12 +39,12 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
         {
             heading: "para",
             image:"fromImage",
-            location: "SN Enterprise",
+            location: "MyStore Ltda",
             description: "Banco da Conta do Recebedor",
             details: [
-                { title: "CNPJ", content: getCurrentDateTime() },
+                { title: "CNPJ", content: "Y4.NNL.3ED/NAD9-04" },
                 { title: "Agencia", content: "0001" },
-                { title: "Conta", content: "000000000-1" },
+                { title: "Conta", content: "100000001-1" },
                 { title: "Tipo de conta", content: "Conta Corrente" }
             ]
         },
@@ -54,9 +54,9 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
             location: name,
             description: "Nu Pagamentos S.A.",
             details: [
-                { title: "CPF", content: "000.000.000-01" },
+                { title: "CPF", content: "***.456.789-**" },
                 { title: "Agencia", content: "0001" },
-                { title: "Conta", content: "000000000-1" },
+                { title: "Conta", content: "10000002-3" },
                 { title: "Tipo de conta", content: "Conta de Pagamento" }
             ]
         }
@@ -120,7 +120,7 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
                     <Image src={"/demoapp/image/ofPlayground/iniciador-icon.svg"} alt="dollar" height={24} width={24} priority/>
                     <div className={style.summaryText}>
                         <div className={style.paymentMethod} style={subTextStyle}>realizado via</div>
-                        <div className={style.total} style={titleTextStyle}>Iniciador</div>
+                        <div className={style.total} style={titleTextStyle}>Cumbuca IP LTDA</div>
                     </div>
                 </div>:null}
           </div>

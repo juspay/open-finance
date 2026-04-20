@@ -25,7 +25,7 @@ export const translations = {
   },
   pt: {
     tryInYourStyle: {
-      title: "Tudo que você precisa saber sobre PIX Open Finance: Vire um expert em PISP, Pix biométrico e automático",
+      title: "Tudo que você precisa saber sobre PIX com Open Finance: Vire um expert em ITP, Pix Biométrico e PIX Automático",
       button: "Experimente do seu jeito"
     },
     featureCards: {

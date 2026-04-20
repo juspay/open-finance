@@ -14,8 +14,8 @@
 //   const router = useRouter();
 //   const [loading, setLoading] = useState(true);
 //   const searchParams = useSearchParams();
-//   const name = searchParams.get("name") || "Bruno A Oliveria";
-//   const total = searchParams.get("total") || "567";
+//   const name = searchParams.get("name") || "Alice B. Charlie";
+//   const total = searchParams.get("total") || "467";
 //   const paymentMethod = searchParams.get("paymentMethod") || "PIX";
 
 //   const getCurrentDateTime = () => {
@@ -137,8 +137,8 @@ const SuccessPageContainer: React.FC<SuccessPageProps> = ({
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
-  const name = searchParams.get("name") || "Bruno A Oliveria";
-  const total = searchParams.get("total") || "567";
+  const name = searchParams.get("name") || "Alice B. Charlie";
+  const total = searchParams.get("total") || "467";
   const paymentMethod = searchParams.get("paymentMethod") || "PIX";
   const [isBackNavigation, setIsBackNavigation] = useState(false); 
   const clickToPay = paymentMethod === "Itau Cartão de crédito" ;
