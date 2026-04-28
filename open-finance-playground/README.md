@@ -1,6 +1,8 @@
-# Euler Demo App
+# Open Finance Playground
+Everything you need to know about PIX with Open Finance: Become an expert in ITP/PISP, Biometric PIX, and Automatic PIX.
 
-A Next.js demo application showcasing Open Finance payment flows — including PIX (PISP, QR, Biometrico, Automatico), card payments, and Click to Pay — built with the Juspay payment orchestration platform.
+## Stack
+- Next.js
 
 ## Prerequisites
 
@@ -11,8 +13,8 @@ A Next.js demo application showcasing Open Finance payment flows — including P
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/juspay/euler-demo-app.git
-   cd euler-demo-app
+   git clone https://github.com/juspay/open-finance.git
+   cd open-finance/open-finance-playground
    ```
 
 2. **Install dependencies:**
@@ -20,23 +22,12 @@ A Next.js demo application showcasing Open Finance payment flows — including P
    pnpm install
    ```
 
-3. **Configure environment variables:**
-   ```bash
-   cp .env.example .env
-   ```
-   Edit `.env` and fill in the required values:
-
-   | Variable | Description |
-   |----------|-------------|
-   | `API_KEY` | Your Juspay API key |
-   | `JUSPAY_DOMAIN` | Juspay API domain URL |
-
-4. **Run the development server:**
+3. **Run the development server:**
    ```bash
    pnpm dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 

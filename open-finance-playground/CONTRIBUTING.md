@@ -7,8 +7,8 @@ Thank you for your interest in contributing! Here's how you can help.
 1. **Fork** the repository on GitHub.
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/<your-username>/euler-demo-app.git
-   cd euler-demo-app
+   git clone https://github.com/<your-username>/open-finance.git
+   cd open-finance/open-finance-playground
    ```
 3. **Create a branch** for your change:
    ```bash

@@ -1,13 +1,13 @@
 {
-  "name": "euler-demo-app",
-  "version": "0.1.0",
-  "description": "Next.js demo app showcasing Open Finance payment flows with Juspay",
+  "name": "open-finance-playground",
+  "version": "0.2.0",
+  "description": "Open Finance Playground",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/juspay/euler-demo-app.git"
+    "url": "https://github.com/juspay/open-finance.git"
   },
-  "author": "Juspay",
+  "author": "Juspay + Cumbuca",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -48,5 +48,5 @@
     "tailwindcss": "^4.1.15",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.33.2"
 }
