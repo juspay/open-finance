@@ -34,14 +34,13 @@ const SelectBankContainer: React.FC<SelectBankContainerProps> = ({inputStyles,ti
 
 
     const BankList: ListItem[] = [
-        { name: "caixa", desc: "Caixa", subdesc: "" },
         { name: "bradesco", desc: "Bradesco", subdesc: "" },
-        { name: "Pagbank", desc: "PagBank", subdesc: "" },
+        { name: "bancoBrasilImage", desc: "Banco do Brasil", subdesc: "" },
     ];
     const PopularBankList: ListItem[] = [
         {name:"bank_meubanco", desc:"Meu Banco", subdesc:""},
         { name: "nupayImage", desc: "NuBank", subdesc: "" },
-        { name: "bancoBrasilImage", desc: "Banco Brasil", subdesc: "" },
+        { name: "bank_mercadopago", desc: "Mercado Pago", subdesc: "" },
         { name: "santanderbankImage", desc: "Santander", subdesc: "" },
     ];
     const filteredBanks = BankList.filter(bank =>
@@ -95,8 +94,8 @@ const SelectBankContainer: React.FC<SelectBankContainerProps> = ({inputStyles,ti
                     {filteredPopularBanks.length > 0 && <><div className={style.sectionHeader} style={titleTextStyle}>Bancos Populares</div>
                         <div className={style.bankListContainer} >
                             {filteredPopularBanks.map((ele, index) => (
-                                <div className={style.bankItem} onClick={() => handleBankClick(ele.name)}>
-                                    <div key={index} className={`${style.bankImageContainer} ${ele.name === 'bank_meubanco' ? style.ripple : ''}`}>
+                                <div key={ele.name ?? index} className={style.bankItem} onClick={() => handleBankClick(ele.name)}>
+                                    <div className={`${style.bankImageContainer} ${ele.name === 'bank_meubanco' ? style.ripple : ''}`}>
                                         <Image src={`/demoapp/image/bankImage/${ele.name}.svg`} alt="bank" height={24} width={24} className={style.image} />
                                     </div>
                                     <div className={style.bankName} style={titleTextStyle}>{ele.desc}</div>

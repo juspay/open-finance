@@ -9,11 +9,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import "../global.css";
 import { useTheme } from "@/app/open-finance/context/ThemeContext";
+import { translations } from "@/app/open-finance/translations";
 
 
 export default function MobileViewPage() {
-  
+
   const { language } = useTheme();
+  const t = translations[language].flowSelector;
   
   const defaultSimulatorState: SimulatorState = {
   layout: "boxed",
@@ -106,7 +108,7 @@ export default function MobileViewPage() {
               onClick={() => setOpen(!open)}
             >
               <span>
-                {selectedFlow === "pisp" ? "Redirection" : "JSR"}
+                {selectedFlow === "pisp" ? t.redirection : t.jsr}
               </span>
               <Image
                 src="/demoapp/image/ofPlayground/dropdow-arrow.svg"
@@ -126,7 +128,7 @@ export default function MobileViewPage() {
                     setOpen(false);
                   }}
                 >
-                  Redirection
+                  {t.redirection}
                 </li>
                 <li
                   className={`${style.option}`}
@@ -135,7 +137,7 @@ export default function MobileViewPage() {
                     setOpen(false);
                   }}
                 >
-                  JSR
+                  {t.jsr}
                 </li>
               </ul>
             )}

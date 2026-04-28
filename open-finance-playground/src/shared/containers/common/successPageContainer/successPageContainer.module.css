@@ -122,21 +122,22 @@
 .recieptButton{
     height: 32px;
     background-color: #F8F9FA;
-    width: 110px;
+    width: fit-content;
     color: #18191B;
-    display: flex;
+    display: inline-flex;
     border-radius: 100px;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 8px 12px;
+    gap: 8px;
+    padding: 8px 16px;
     margin-bottom: 20px;
     cursor: pointer;
     font-family: 'Inter Display SemiBold';
+    white-space: nowrap;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
-    user-select: none; 
+    user-select: none;
 }
 
 .recieptButton:active {

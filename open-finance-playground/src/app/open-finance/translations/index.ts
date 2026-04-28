@@ -21,6 +21,10 @@ export const translations = {
     footer: {
       hashtag: "#maispoderparavoce",
       contactUs: "Contact Us"
+    },
+    flowSelector: {
+      redirection: "Redirection",
+      jsr: "JSR"
     }
   },
   pt: {
@@ -45,6 +49,10 @@ export const translations = {
     footer: {
       hashtag: "#maispoderparavoce",
       contactUs: "Entre em Contato"
+    },
+    flowSelector: {
+      redirection: "Com redirecionamento",
+      jsr: "Sem redirecionamento (JSR)"
     }
   }
 };

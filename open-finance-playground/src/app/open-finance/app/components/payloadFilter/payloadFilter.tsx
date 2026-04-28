@@ -44,7 +44,19 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       stepTitle: t("auditTrail.step1_fetch"),
       time: logTime,
       requestHeaders:
-        "curl -s 'https://data.directory.openbankingbrasil.org.br/participants' | jq '.[] | .AuthorisationServers[] | select(    any(.ApiResources[]?; .ApiFamilyType == \"payments-pix-recurring-payments\"))| { name: .CustomerFriendlyName, icon: .CustomerFriendlyLogoUri }'",
+        "curl -s 'https://data.directory.openbankingbrasil.org.br/participants' |\n" +
+          "jq '[.[]\n" +
+          "  as $participant\n" +
+          "  | $participant.AuthorisationServers[]\n" +
+          "  | select(any(.ApiResources[]?; .ApiFamilyType == \"payments-pix\"))\n" +
+          "  | {\n" +
+          "      name: .CustomerFriendlyName,\n" +
+          "      icon: .CustomerFriendlyLogoUri,\n" +
+          "      openid_discovery: .OpenIDDiscoveryDocument,\n" +
+          "      organization_id: $participant.OrganisationId,\n" +
+          "      authorization_server_id: .AuthorisationServerId\n" +
+          "    }\n" +
+          "] | sort_by(.name | ascii_downcase)'",
     }, ],
     5: [{
       stepTitle: t("auditTrail.step2_token"),
@@ -52,27 +64,23 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       method: "POST",
       url: "https://matls-auth.mockbank.poc.raidiam.io/token",
       requestHeaders: {
-        "Authorization": "Bearer sampleTokenYk65uGas_go3z9esqLlRdU2V8GecmY5T",
-        "Content-Type": "application/jwt",
-        "x-idempotency-key": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json",
         "x-fapi-interaction-id": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee"
       },
       requestBody: {
-        "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments",
-        "jti": "73d1b509-e63f-48bc-824b-97a5ebe546f8",
-        "data": {
-          "permissions": [
-            "PAYMENTS_INITIATE"
-          ],
-          "loggedUser": {
-            "document": {
-              "rel": "CPF",
-              "identification": "user_cpf"
-            }
-          }
-        },
-        "iat": 1758808996,
-        "iss": "dcr_client_id"
+        "grant_type": "client_credentials",
+        "scope": "payments",
+        "client_id": "dcr_client_id",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion": {
+          "iss": "dcr_client_id",
+          "sub": "dcr_client_id",
+          "aud": "https://matls-auth.mockbank.poc.raidiam.io/token",
+          "jti": "73d1b509-e63f-48bc-824b-97a5ebe546f8",
+          "iat": 1758808996,
+          "exp": 1758809896
+        } //jwt-encrypted
       },
       responseBody: {
         "token_type": "Bearer",
@@ -85,7 +93,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         stepTitle: t("auditTrail.bio_step3_enrollment"),
         time: logTime,
         method: "POST",
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments",
+        url: "https://<api url>/open-banking/enrollments/v2/enrollments",
         requestHeaders: {
             "Authorization": "Bearer sampleTokenYk65uGas_go3z9esqLlRdU2V8GecmY5T",
             "Content-Type": "application/jwt",
@@ -93,7 +101,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
             "x-fapi-interaction-id": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee"
         },
         requestBody: {
-          "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments",
+          "aud": "https://<api url>/open-banking/enrollments/v2/enrollments",
           "jti": "73d1b509-e63f-48bc-824b-97a5ebe546f8",
           "data": {
             "permissions": [
@@ -132,7 +140,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           },
           "iss": "bank_org_id",
           "links": {
-            "self": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2"
+            "self": "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2"
           },
           "iat": 1758808999,
           "jti": "860b46a5-7255-4c27-aef9-a6cbf0401558"
@@ -142,7 +150,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         stepTitle: t("auditTrail.bio_step4_risk"),
         time: logTime,
         method: "POST",
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/risk-signals",
+        url: "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/risk-signals",
         requestHeaders: {
              "Authorization": "Bearer sampleTokenYk65uGas_go3z9esqLlRdU2V8GecmY5T",
             "Content-Type": "application/jwt",
@@ -150,7 +158,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
             "x-fapi-interaction-id": "6b4a7df9-823d-455d-8f5a-c9da808e26ed"
         },
         requestBody: {
-          "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/risk-signals",
+          "aud": "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/risk-signals",
           "jti": "13bdb4d0-7332-4f85-89bc-89d4db3c10d5",
           "data": {
             "isCharging": true,
@@ -240,12 +248,14 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         "authorization_endpoint/?client_id&request_uri&scope",
     },
   ],
-    6: [
+    8: [
       {
         stepTitle: t("auditTrail.bio_step7_redirect_back"),
         time: logTime,
         requestHeaders: "redirect_uri/#code&state",
       },
+    ],
+    9: [
       {
         stepTitle: t("auditTrail.bio_step8_token"),
         time: logTime,
@@ -253,7 +263,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         url: "https://matls-auth.mockbank.poc.raidiam.io/token",
         requestHeaders: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "x-idempotency-key": "a9614d46-6dbe-4c47-9269-6d725b9690ce",
+          "Accept": "application/json",
           "x-fapi-interaction-id": "a9614d46-6dbe-4c47-9269-6d725b9690ce"
         },
         requestBody: {
@@ -297,7 +307,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         stepTitle: t("auditTrail.bio_step9_fido"),
         time: logTime,
         method: "POST",
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration-options",
+        url: "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration-options",
         requestHeaders: {
            "Authorization": "Bearer sampleTokenFayP1AWlnTM5w9Qa3vZNCXdJ5AC-mGAH",
           "Content-Type": "application/jwt",
@@ -305,7 +315,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "a9614d46-6dbe-4c47-9269-6d725b9690ce"
         },
         requestBody: {
-              "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration-options",
+              "aud": "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration-options",
               "jti": "a1f3c017-3861-49f2-88f5-113ee571d378",
               "data": {
                 "platform": "ANDROID",
@@ -353,49 +363,18 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       },
 
     ],
-    11: [
+    10: [
       {
         stepTitle: t("auditTrail.bio_step10_webauthn"),
         time: logTime,
       },
-      {
-        stepTitle: t("auditTrail.bio_step11_token"),
-        time: logTime,
-        method: "POST",
-        url: "https://matls-auth.mockbank.poc.raidiam.io/token",
-        requestHeaders: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "x-idempotency-key": "a9614d46-6dbe-4c47-9269-6d725b9690ce",
-          "x-fapi-interaction-id": "a9614d46-6dbe-4c47-9269-6d725b9690ce"
-        },
-        requestBody: {
-                "client_assertion":  {
-                      "sub": "dcr_client_id",
-                      "aud": "https://matls-auth.mockbank.poc.raidiam.io/token",
-                      "jti": "3c50dbeb-ba9f-4fc5-9d93-bc8bb959b646",
-                      "iat": 1758808896,
-                      "iss": "dcr_client_id",
-                       "exp": 1758809796
-                 }, //jwt-encrypted
-                "grant_type": "refresh_token", 
-                  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-                  "scope": "openid payments enrollment:urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2 nrp-consents",
-                  "refresh_token": "ZPCkRvbl2D7FwN64D2o4Xjn4e3VmCNTXPLT3mI1Ydei",
-                  "client_id": "dcr_client_id"
-        },
-        responseBody: {
-            "token_type": "Bearer",
-             "expires_in": 900,
-              "scope": "payments nrp-consents enrollment:urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2",
-              "access_token": "4gSFZdBIxgMJukUdwHvS2UcRUTIzIPh1J1BeYp7XLXD",
-              "refresh_token": "ZPCkRvbl2D7FwN64D2o4Xjn4e3VmCNTXPLT3mI1Ydei"
-      },
-      },
+    ],
+    11: [
       {
         stepTitle: t("auditTrail.bio_step12_register"),
         time: logTime,
         method: "POST",
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration",
+        url: "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration",
         requestHeaders: {
           "Authorization": "Bearer sampleTokenJukUdwHvS2UcRUTIzIPh1J1BeYp7XLXD",
           "Content-Type": "application/jwt",
@@ -403,7 +382,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "b5a39a05-c417-4de4-9b47-f569db8b1537"
         },
         requestBody: {
-           "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration",
+           "aud": "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-registration",
           "jti": "8bf879cf-8dfb-4931-9034-147fef628231",
           "data": {
             "authenticatorAttachment": "platform",
@@ -433,7 +412,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         method: "POST",
         requestHeaders: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "x-idempotency-key": "a9614d46-6dbe-4c47-9269-6d725b9690ce",
+          "Accept": "application/json",
           "x-fapi-interaction-id": "a9614d46-6dbe-4c47-9269-6d725b9690ce"
         },
         requestBody: {
@@ -461,7 +440,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       {
         stepTitle: t("auditTrail.bio_step14_consent"),
         time: logTime,
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/consents",
+        url: "https://<api url>/open-banking/payments/v4/consents",
         method: "POST",
         requestHeaders: {
           "Authorization": "Bearer sampleTokenlU2T9xwmp2MG4e0kRWdSyCtSLH-r7jpF",
@@ -470,7 +449,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee"
         },
         requestBody: {
-          "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/consents",
+          "aud": "https://<api url>/open-banking/payments/v4/consents",
           "jti": "d58efce1-7d27-45da-9351-ae93912986ee",
           "data": {
             "payment": {
@@ -551,7 +530,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       {
         stepTitle: t("auditTrail.bio_step15_sign"),
         time: logTime,
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-sign-options",
+        url: "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-sign-options",
         method: "POST",
         requestHeaders: {
           "Authorization": "Bearer sampleTokenlU2T9xwmp2MG4e0kRWdSyCtSLH-r7jpF",
@@ -560,7 +539,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "e957e796-28d5-4fdc-802a-c05b51ab140e"
         },
         requestBody: {
-           "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-sign-options",
+           "aud": "https://<api url>/open-banking/enrollments/v2/enrollments/urn:raidiambank:0033cbef-0742-4d0b-be26-ceb66f2573e2/fido-sign-options",
             "jti": "bbe9fb00-2552-4a4b-919a-3d036321d0ae",
             "data": {
               "platform": "ANDROID",
@@ -586,9 +565,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
   "jti": "4f399726-8ee3-449b-9fed-ec2d3c40f691"
         } //jwt-encrypted
 
-      }
-    ],
-    14: [
+      },
       {
         stepTitle: t("auditTrail.bio_step16_token"),
         time: logTime,
@@ -596,7 +573,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         method: "POST",
         requestHeaders: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "x-idempotency-key": "a9614d46-6dbe-4c47-9269-6d725b9690ce",
+          "Accept": "application/json",
           "x-fapi-interaction-id": "a9614d46-6dbe-4c47-9269-6d725b9690ce"
         },
         requestBody: {
@@ -626,7 +603,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       {
         stepTitle: t("auditTrail.bio_step17_authorize"),
         time: logTime,
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/consents/urn:raidiambank:0cba8903-7555-4581-8d64-d140b365abaf/authorise",
+        url: "https://<api url>/open-banking/enrollments/v2/consents/urn:raidiambank:0cba8903-7555-4581-8d64-d140b365abaf/authorise",
         method: "POST",
         requestHeaders: {
           "Authorization": "Bearer sampleTokenC5CyDW53NBypKtKBUSFuycR9_8n-QMJd",
@@ -635,7 +612,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "d11dd2b5-da85-4230-86ff-973971c14555"
         },
         requestBody: {
-            "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/enrollments/v2/consents/urn:raidiambank:0cba8903-7555-4581-8d64-d140b365abaf/authorise",
+            "aud": "https://<api url>/open-banking/enrollments/v2/consents/urn:raidiambank:0cba8903-7555-4581-8d64-d140b365abaf/authorise",
   "jti": "f0c35adc-0280-4f2f-9e46-30d2a9be09b8",
   "data": {
     "riskSignals": {
@@ -685,10 +662,12 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
   "iss": "dcr_client_id"
         },
       },
+    ],
+    14: [
        {
         stepTitle: t("auditTrail.bio_step18_payment"),
         time: logTime,
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/pix/payments",
+        url: "https://<api url>/open-banking/payments/v4/pix/payments",
         method: "POST",
         requestHeaders: {
           "Authorization": "Bearer sampleTokenC5CyDW53NBypKtKBUSFuycR9_8n-QMJd",
@@ -697,7 +676,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "6983ea6d-51c5-40d5-b7ff-380de0e0dd25"
         },
         requestBody: {
-            "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/pix/payments",
+            "aud": "https://<api url>/open-banking/payments/v4/pix/payments",
             "jti": "c4f1f727-5024-4641-bc88-756dfe28db8e",
             "data": [
               {
@@ -761,6 +740,8 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         "jti": "bd3821e5-2d0d-4f03-aa92-bb6c3d946fb1"
         }
       },
+    ],
+    15: [
       {
         stepTitle: t("auditTrail.bio_step19_poll"),
         time: logTime,
@@ -800,7 +781,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
             },
             "iss": "bank_org_id",
             "links": {    
-          "self": "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/pix/payments/858fed10-62c0-422d-9aa4-0d484e99b0d0"  
+          "self": "https://<api url>/open-banking/payments/v4/pix/payments/858fed10-62c0-422d-9aa4-0d484e99b0d0"  
           },
             "iat": 1758809246,
             "jti": "03cbb1fe-85ba-4084-b0a4-d6f7c86ae7f0"
@@ -822,87 +803,29 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       method: "POST",
       url: "https://matls-auth.mockbank.poc.raidiam.io/token",
       requestHeaders: {
-        Authorization:
-          "Bearer sampleTokenDY_CJFgp-bXAq_uqyHIT752P_uRmLJOK",
-        "Content-Type": "application/jwt",
-        "x-idempotency-key": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee",
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
         "x-fapi-interaction-id": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee",
       },
       requestBody: {
-        aud: "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/consents",
-        jti: "d58efce1-7d27-45da-9351-ae93912986ee",
-        data: {
-          payment: {
-            details: {
-              creditorAccount: {
-                issuer: "creditor_issuer",
-                number: "creditor_account number",
-                accountType: "CACC",
-                ispb: "creditor_ispb",
-              },
-              localInstrument: "MANU",
-            },
-            currency: "BRL",
-            amount: "467.00",
-            type: "PIX",
-            date: currentISODate, // DYNAMIC
-          },
-          creditor: {
-            personType: "PESSOA_JURIDICA",
-            name: "crediotor_name",
-            cpfCnpj: "creditor_cnpj",
-          },
-          loggedUser: {
-            document: {
-              rel: "CPF",
-              identification: "user_cpf",
-            },
-          },
-        },
-        iat: nowUnix, // DYNAMIC
-        iss: "dcr_client_id",
+        grant_type: "client_credentials",
+        scope: "payments",
+        client_id: "dcr_client_id",
+        client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        client_assertion: {
+          iss: "dcr_client_id",
+          sub: "dcr_client_id",
+          aud: "https://matls-auth.mockbank.poc.raidiam.io/token",
+          jti: "73d1b509-e63f-48bc-824b-97a5ebe546f8",
+          iat: nowUnix, // DYNAMIC
+          exp: futureUnix, // DYNAMIC
+        }, //jwt-encrypted
       },
       responseBody: {
-        aud: "your_org_id",
-        data: {
-          consentId: DYNAMIC_CONSENT_ID,
-          creationDateTime: currentISOTime, // DYNAMIC
-          expirationDateTime: new Date(now.getTime() + 5 * 60 * 1000).toISOString().replace(/\.\d{3}Z$/, 'Z'), // DYNAMIC + 5 mins
-          statusUpdateDateTime: currentISOTime, // DYNAMIC
-          status: "AWAITING_AUTHORISATION",
-          loggedUser: {
-            document: {
-              identification: "user_cpf",
-              rel: "CPF",
-            },
-          },
-          creditor: {
-            personType: "PESSOA_JURIDICA",
-            cpfCnpj: "creditor_cnpj",
-            name: "creditor_cnpj",
-          },
-          payment: {
-            type: "PIX",
-            date: currentISODate, // DYNAMIC
-            currency: "BRL",
-            amount: "467.00",
-            details: {
-              localInstrument: "MANU",
-              creditorAccount: {
-                ispb: "creditor_ispb",
-                issuer: "creditor_issuer",
-                number: "creditor_account number",
-                accountType: "CACC",
-              },
-            },
-          },
-        },
-        meta: {
-          requestDateTime: currentISOTime, // DYNAMIC
-        },
-        iss: "bank_org_id",
-        iat: nowUnix + 5, // DYNAMIC
-        jti: "0efbeb96-1396-452a-93ae-50979f29203d",
+        token_type: "Bearer",
+        expires_in: 900,
+        scope: "payments",
+        access_token: "sampleTokenDY_CJFgp-bXAq_uqyHIT752P_uRmLJOK",
       },
     }, ],
     7: [
@@ -910,7 +833,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         stepTitle: t("auditTrail.pisp_step3_consent"),
         time: logTime,
         method: "POST",
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/consents",
+        url: "https://<api url>/open-banking/payments/v4/consents",
         requestHeaders: {
           Authorization:
             "Bearer sampleTokenDY_CJFgp-bXAq_uqyHIT752P_uRmLJOK",
@@ -919,7 +842,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
           "x-fapi-interaction-id": "c267c06b-0ea1-4e2a-a2c5-09de6c8133ee",
         },
         requestBody: {
-          aud: "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/consents",
+          aud: "https://<api url>/open-banking/payments/v4/consents",
           jti: "d58efce1-7d27-45da-9351-ae93912986ee",
           data: {
             payment: {
@@ -1069,7 +992,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         method: "POST",
         requestHeaders: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "x-idempotency-key": "2e2fbf85-4ee2-48b1-b0b1-c96a520b0a86",
+          "Accept": "application/json",
           "x-fapi-interaction-id": "2e2fbf85-4ee2-48b1-b0b1-c96a520b0a86"
         },
         requestBody: {
@@ -1093,7 +1016,16 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
         {
           "token_type": "Bearer",
           "expires_in": 900,
-          "id_token": "",
+          "id_token": {
+            "sub": "<user_id_from_bank>",
+            "acr": "urn:brasil:openbanking:loa2",
+            "nonce": "4269475ff76430a99ef528bec6e43f3ca1760b13386150ea377c8fa7372d3d57",
+            "at_hash": "C0LdGzLnzZTMTuT3iCzbQg",
+            "aud": "dcr_client_id",
+            "exp": futureUnix + 3600, // DYNAMIC ~1h after access_token
+            "iat": nowUnix + 50, // DYNAMIC
+            "iss": "https://auth.mockbank.poc.raidiam.io"
+          }, //jwt-encrypted
           "scope": `openid payments consent:${DYNAMIC_CONSENT_ID}`, // DYNAMIC
           "access_token": "wxzxOTHRk0AZ8XC3nZLIP-WzCSUoEKDHmzOZsruzbIs",
           "refresh_token": "I_J7h6vViDRl4u5XdzZ6xjd-WgAP4XpLX2nRasbf0X-"
@@ -1104,7 +1036,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
       {
         stepTitle: t("auditTrail.pisp_step7_payment"),
         time: logTime,
-        url: "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/pix/payments",
+        url: "https://<api url>/open-banking/payments/v4/pix/payments",
         method: "POST",
         requestHeaders: {
           "Authorization": "Bearer sampleTokenZ8XC3nZLIP-WzCSUoEKDHmzOZsruzbIs",
@@ -1114,7 +1046,7 @@ const PayloadFilter = ({ currentState, selectedFlow }: PayloadFilterProps) => {
 
         },
         requestBody: {
-          "aud": "https://matls-api.mockbank.poc.raidiam.io/open-banking/payments/v4/pix/payments",
+          "aud": "https://<api url>/open-banking/payments/v4/pix/payments",
           "jti": "c4f1f727-5024-4641-bc88-756dfe28db8e",
           "data": [
             {

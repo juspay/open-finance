@@ -1,0 +1,159 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    background-color: #ffffff;
+    font-family: "Inter";
+}
+
+.header {
+    padding: 20px 20px 24px;
+    background-color: #820AD1;
+    color: #FFFFFF;
+    border-radius: 24px 24px 0 0;
+}
+
+.headerSubtitle {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+}
+
+.headerTitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.devicePill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    font-size: 12px;
+    border-radius: 999px;
+}
+
+.body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sectionLabel {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: #6B6B7B;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid #ECECF2;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rowLabel {
+    font-size: 11px;
+    font-weight: 500;
+    color: #820AD1;
+}
+
+.rowValue {
+    font-size: 13px;
+    color: #18191B;
+    line-height: 18px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #F1F1F5;
+}
+
+.importante {
+    padding: 12px 14px;
+    background-color: #F6F6FA;
+    border-radius: 12px;
+    color: #4A4A57;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.importanteHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #18191B;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+}
+
+.importanteList {
+    margin: 4px 0 0 16px;
+    padding: 0;
+}
+
+.importanteList li {
+    margin-bottom: 2px;
+}
+
+.iniciadora {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 0 0;
+}
+
+.iniciadoraLabel {
+    font-size: 11px;
+    color: #6B6B7B;
+}
+
+.iniciadoraValue {
+    font-size: 13px;
+    font-weight: 600;
+    color: #18191B;
+}
+
+.footer {
+    padding: 12px 20px 20px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #F1F1F5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footerHint {
+    font-size: 11px;
+    text-align: center;
+    color: #6B6B7B;
+    margin-bottom: 4px;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

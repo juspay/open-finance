@@ -25,12 +25,17 @@ const InputField = forwardRef<HTMLInputElement, InputFields>(
       inputRef.current.value = "";
       let i = 0;
       const interval = setInterval(() => {
+        const el = inputRef.current;
+        if (!el) {
+          clearInterval(interval);
+          return;
+        }
         if (i < text.length) {
-          inputRef.current!.value += text[i];
+          el.value += text[i];
           i++;
         } else {
           clearInterval(interval);
-          
+
           props.onChange?.({
             target: { value: text },
           } as React.ChangeEvent<HTMLInputElement>);
@@ -38,7 +43,7 @@ const InputField = forwardRef<HTMLInputElement, InputFields>(
       }, 80);
     };
     const handleFocus = () => {
-      if (label === "CPF" && styles) animateTyping("123.456.789-00");
+      if (label === "CPF" && styles) animateTyping("123.456.789-09");
       if (label === "CNPJ" && styles) animateTyping("12.345.678/0001-99");
     };
     

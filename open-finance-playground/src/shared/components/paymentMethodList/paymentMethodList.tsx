@@ -132,8 +132,8 @@ const PaymentMethodList: React.FC<PaymentActionProps> = ({ total, itemCount, Lis
                         {ListItems.map((ele, index) => {
                             const isDisabled = ele.name !== activeItem;
                             const isPixFace = activeItem === "pixface";
-                            const isCaixa = ele.name === "caixa" && styles;
-                            return <div className={`${!bankList?style.containerWrapper:style.wrapper} ${isCaixa?style.disabledCard:''}` }   key={index}>
+                            const isUnavailable = ele.name === "bancoBrasilImage" && styles;
+                            return <div className={`${!bankList?style.containerWrapper:style.wrapper} ${isUnavailable?style.disabledCard:''}` }   key={index}>
                                <div key={index} className={`${style.container} ${index === ListItems.length - 1 ? style.borderBottom : ''}`} style={styles?.container} onClick={() => handleNavigation(ele.name)} >
                                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%"}}>
                                 <div className={`${style.imageContainer} ${ ele.name === "itauSquareFrame" ? style.borderNull : ""} ${isDisabled ? "" : `${style.highlightCircle} ${isPixFace ? style.blackRipple : ""}` }`} >
@@ -196,13 +196,13 @@ const PaymentMethodList: React.FC<PaymentActionProps> = ({ total, itemCount, Lis
                                             {clickToPay?null:<div className={style.terms}>Verifique os <span className={style.clickableTerms} onClick={() => handleNavigation("TermsAndConditions",true)}>termos e condições</span> de pagamento.</div>}
                                         </div>
                                     )}
-                                    {ele.name==="caixa" && styles  && <div className={style.outage} id="caixaOutage">Indisponível</div>}
+                                    {ele.name==="bancoBrasilImage" && styles  && <div className={style.outage} id="caixaOutage">Indisponível</div>}
                                    
                                     
                                 </div>
                                 </div>
-                                 {ele.name==="Pagbank" && styles  && <div className={style.warningBox} id="caixaWarning">
-                                        Enfrentando falhas de pagamento com este banco.  
+                                 {ele.name==="bancoBrasilImage" && styles  && <div className={style.warningBox} id="caixaWarning">
+                                        Enfrentando falhas de pagamento com este banco.
                                         Por favor, tente outro banco para prosseguir.
                                     </div>}
                             </div>

@@ -1,4 +1,5 @@
 "use client"
+import { Fragment } from "react";
 import style from "./receiptPageContainer.module.css";
 import Layout from "@/shared/components/layout/Layout";
 import Header from "@/shared/components/header/header";
@@ -69,7 +70,7 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
           <div className={style.container}>
                 <div className={style.receiptHeader}>
                     <div className={style.headerTextContainer}>
-                        <div className={style.headerTitle} style={titleTextStyle}>Ver recibo</div>
+                        <div className={style.headerTitle} style={titleTextStyle}>Recibo</div>
                         <div className={style.timeText} style={subTextStyle}>{getCurrentDateTime()}</div>
                     </div>
                     {titleTextStyle? <div className={style.iconContainers}>
@@ -93,10 +94,10 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
 
                 <div className={style.billContainer}>
                     {ListItem.map((item, index) => (
-                        <>
+                        <Fragment key={index}>
                         <div className={style.billItems} style={titleTextStyle?{margin:'0px',padding : '20px'}:undefined}>
                             <Image src={`/demoapp/image/componentImages/${item.image}.svg`} alt="icons" height={34} width={34} priority/>
-                            <div key={index} className={style.billStructure}>
+                            <div className={style.billStructure}>
                                 <div className={style.textContainer}>
                                     <div className={style.heading} >{item.heading}</div>
                                     <div className={style.subheading} style={titleTextStyle}>{item.location}</div>
@@ -112,7 +113,7 @@ const ReceiptPageContainer : React.FC<ReceiptPageContainerProps> = ({goToPreviou
                             </div>
                         </div>
                         {titleTextStyle?<div style={{borderBottom: "1px dashed #E0E0E0",margin:'0px 12px '}}></div>:null}
-                        </>
+                        </Fragment>
                     ))}
                 </div>
                 

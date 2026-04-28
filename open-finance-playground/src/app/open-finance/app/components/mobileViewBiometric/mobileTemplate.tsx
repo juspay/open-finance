@@ -19,6 +19,7 @@ import Footer from "@/shared/components/Footer/Footer";
 import AppleFaceId from "@/shared/components/appleFaceID/appleFaceID";
 import dynamic from "next/dynamic";
 import ConfirmBiometricoDetailsContainer from "@/shared/containers/PixBiometrico/confirmBiometricoDetails/confirmBiometricoDetails";
+import EnrollmentReviewContainer from "@/shared/containers/PixBiometrico/enrollmentReviewContainer/enrollmentReviewContainer";
 import SuccessPageContainer from "@/shared/containers/common/successPageContainer/successPageContainer";
 import ReceiptPageContainer from "@/shared/containers/common/receiptPageContainer/receiptPageContainer";
 import LineDotIndicator from "../lineDotIndicator/lineDotIndicator";
@@ -26,8 +27,6 @@ import LineDotIndicator from "../lineDotIndicator/lineDotIndicator";
 
 
 import { motion, AnimatePresence } from "framer-motion";
-import PinInput from "../pinInput/pinInput";
-import MeuBankHomeContainer from "@/shared/containers/pixPISP/meuBankHomeContainer/meuBankHomeContainer";
 import { useTranslation } from 'react-i18next';
 
 
@@ -99,13 +98,17 @@ const MobileViewBiometric : React.FC<MobileViewProps> =({simulatorState , curren
   }, []);
   
   useEffect(() => {
-      if (currentState === 14) {setShowFaceSuccessAnim(true)}
-      if (currentState === 7 || currentState === 12) {
+      if (currentState === 13) {setShowFaceSuccessAnim(true)}
+      if (currentState === 9 || currentState === 11) {
         const timer = setTimeout(() => goToNextStep(), 2500);
         return () => clearTimeout(timer);
       }
+      if (currentState === 6) {
+        const timer = setTimeout(() => goToNextStep(), 1500);
+        return () => clearTimeout(timer);
+      }
 
-      const timers = [5,6,8,12,15];
+      const timers = [5, 8, 14];
       if (timers.includes(currentState)) {
         const timer = setTimeout(() => goToNextStep(), 5000);
         return () => clearTimeout(timer);
@@ -286,21 +289,48 @@ const MobileViewBiometric : React.FC<MobileViewProps> =({simulatorState , curren
      
     
     
-    const step5 = <Layout  
+    const step5 = <Layout
           header = {<Header text=""  styles={headerStyles} desc={false} border={false} close={false} arrow={false} goToPreviousStep={goToPreviousStep} timeAndIcon={true}/>}
           content={
               <div className={style.juspayLoaderContainer}>
                   <Image src={`/demoapp/image/componentImages/logo.svg`} alt="bank" height={69} width={69} className={style.spin} id="juspayLogo"/>
-                  <div  className={style.timerHeader} style={titleTextStyle} id="loaderTextId">Redirecionando com 
+                  <div  className={style.timerHeader} style={titleTextStyle} id="loaderTextId">Redirecionando com
 segurança para Meu Banco</div>
-                  
+
                 </div>}
           footer = {<div className={style.footerContainerPix}>
                 <Image id="juspayViaOpenfinanceScreenId2"src={`/demoapp/image/componentImages/juspayViaOpenfinance.svg`} alt="juspayLogo2" height={14} width={350} priority/>
             </div>}
           />
-      
-    const step6 = 
+
+    const stepBankLoader = (
+      <div style={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: "#820AD1",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}>
+        <div style={{
+          width: 88,
+          height: 88,
+          borderRadius: "50%",
+          backgroundColor: "#FFFFFF",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="#820AD1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"/>
+          </svg>
+        </div>
+      </div>
+    );
+
+    const stepEnrollmentReview = <EnrollmentReviewContainer goToNextStep={goToNextStep} goToPreviousStep={goToPreviousStep}/>
+
+    const step6 =
     <Layout 
           header={<Header text=""  styles={headerStyles} desc={false} border={false} close={false} arrow={false} goToPreviousStep={goToPreviousStep} timeAndIcon={true}/>}
           content={
@@ -345,19 +375,7 @@ segurança para Meu Banco</div>
     footer = {""} />
     
     
-    const step8 = 
-          <div className={style.bankPage}>
-            <Image src="/demoapp/image/ofPlayground/bank_redirection_image.svg" alt="i" height={90} width={90}/>
-          </div>
-    
-    const step9 = <PinInput goToPreviousStep={goToPreviousStep} goToNextStep={goToNextStep} titleStyle={titleTextStyle} />;
-    
-    const step10 = 
-            <div className={style.meubankContainer}>
-            <MeuBankHomeContainer ofPlayground={true} goToNextStep={goToNextStep}/>
-            </div>
-    
-    const step11= 
+    const step11=
    <Layout styles={{ backgroundColor:  pageBackground?.pageBackground  , borderRadius: `17px` ,overflow: "hidden"}} 
       header={
         <div>
@@ -462,25 +480,24 @@ segurança para Meu Banco</div>
         3: step3,
         4: step4,
         5: step5,
-        6: step6,
-        7 : step7,
-        8 : step8,
-        9 : step9,
-        10 : step10,
-        11 : step11,
-        12: step12,
-        13 : step13,
-        14 : step14,
-        15: step15,
-        16: step16,
-        17: step17,
+        6: stepBankLoader,
+        7: stepEnrollmentReview,
+        8: step6,
+        9: step7,
+        10: step11,
+        11: step12,
+        12: step13,
+        13: step14,
+        14: step15,
+        15: step16,
+        16: step17,
       };
     
   
  return (
   <>
   <div className={style.mobileContainer} style={{ position: "relative", overflow: "hidden" }}>
-    {currentState===11 || currentState===14 ? <div className={style.overlay}></div>: null}
+    {currentState===10 || currentState===13 ? <div className={style.overlay}></div>: null}
 
     {steps[currentState] || null}
     
@@ -645,7 +662,7 @@ segurança para Meu Banco</div>
         offsetX={12}
         offsetY={57}
         side="right"
-        hoverText={t('markUnavailableBanks')}
+        hoverText={t('listAllInstitutions')}
         firstHoverDone={firstHoverDone}
         setFirstHoverDone={setFirstHoverDone}
       />

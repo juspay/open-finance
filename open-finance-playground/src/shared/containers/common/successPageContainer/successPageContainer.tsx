@@ -171,9 +171,10 @@ const SuccessPageContainer: React.FC<SuccessPageProps> = ({
 
   const successtableContent = [
     { key: "Número de referência", value: "000085752257" },
-    { key: "Prazo de pagamento", value: getCurrentDateTime() },
-    { key: "Método de pagamento", value: paymentMethod },
-    { key: "Nome do remetente", value: name },
+    { key: "Realizado em", value: getCurrentDateTime() },
+    { key: "Método", value: paymentMethod },
+    { key: "Pagador", value: name },
+    { key: "Recebedor", value: "MyStore Ltda" },
   ];
   const pixAutomaticoTableContent = [
     { key: "Número de referência", value: "000085752257" },
