@@ -1,10 +1,12 @@
 "use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { translations } from '../translations';
 import { useTheme } from '../context/ThemeContext';
 
 const FeatureCards: React.FC = () => {
   const { language, theme } = useTheme();
+  const router = useRouter();
   const t = translations[language];
 
   const handleFeatureClick = (featureKey: string) => {
@@ -14,7 +16,7 @@ const FeatureCards: React.FC = () => {
         break;
       case 'experienceSimulator':
         // Same redirect as "Try in your style" button
-        window.location.href = "/open-finance/mobileViewContainer";
+        router.push("/open-finance/mobileViewContainer");
         break;
       case 'changelog':
         // Disabled - do nothing

@@ -7,12 +7,13 @@ import { useTheme } from './context/ThemeContext';
 
 export default function PlaygroundLanding() {
   const { language } = useTheme();
+  const router = useRouter();
 
   return (
     <LandingPage
       onTrySimulator={() =>{
         localStorage.setItem('selectedLanguage', language);
-        window.location.href = "/open-finance/mobileViewContainer";
+        router.push("/open-finance/mobileViewContainer");
       }
       }
     />
